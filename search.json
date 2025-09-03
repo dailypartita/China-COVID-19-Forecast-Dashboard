@@ -1,0 +1,107 @@
+[
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About the team",
+    "section": "",
+    "text": "This is our staff\n\n\n\n\n\nDale is the boss\n\n\n\n\n\n\n\n\nBubblegum is the scientist"
+  },
+  {
+    "objectID": "about.html#introduction",
+    "href": "about.html#introduction",
+    "title": "About the team",
+    "section": "",
+    "text": "This is our staff\n\n\n\n\n\nDale is the boss\n\n\n\n\n\n\n\n\nBubblegum is the scientist"
+  },
+  {
+    "objectID": "eval.html",
+    "href": "eval.html",
+    "title": "China COVID-19 Forecast Hub Dashboard",
+    "section": "",
+    "text": "this is replaced"
+  },
+  {
+    "objectID": "forecast.html",
+    "href": "forecast.html",
+    "title": "China COVID-19 Forecast Hub Dashboard",
+    "section": "",
+    "text": "this is replaced"
+  },
+  {
+    "objectID": "data.html",
+    "href": "data.html",
+    "title": "Accessing Hub Data",
+    "section": "",
+    "text": "All model-output, target, and configuration files for this hub are hosted on GitHub. You can access the data directly from the repository at dailypartita/China-COVID-19-Forecast-Hub.\nGitHub serves as the primary interface for operating the hub and collecting forecasts from modelers. You can access hub data by cloning the repository or downloading files directly from GitHub."
+  },
+  {
+    "objectID": "data.html#accessing-hub-data-from-github",
+    "href": "data.html#accessing-hub-data-from-github",
+    "title": "Accessing Hub Data",
+    "section": "",
+    "text": "All model-output, target, and configuration files for this hub are hosted on GitHub. You can access the data directly from the repository at dailypartita/China-COVID-19-Forecast-Hub.\nGitHub serves as the primary interface for operating the hub and collecting forecasts from modelers. You can access hub data by cloning the repository or downloading files directly from GitHub."
+  },
+  {
+    "objectID": "data.html#data-access-methods",
+    "href": "data.html#data-access-methods",
+    "title": "Accessing Hub Data",
+    "section": "Data Access Methods",
+    "text": "Data Access Methods\nThe sections below provide examples for accessing hub data depending on your goals and preferred tools:\n\n\n\nAccess Method\nDescription\n\n\n\n\nGit/GitHub\nClone the repository for full local access\n\n\nGitHub Raw Files\nDirect HTTP access to individual files\n\n\nGitHub API\nProgrammatic access to repository contents\n\n\n\n\nGit/GitHub Direct AccessGitHub Raw FilesGitHub API\n\n\n\nCloning the Repository\nTo get a complete local copy of all hub data:\ngit clone https://github.com/dailypartita/China-COVID-19-Forecast-Hub.git\ncd China-COVID-19-Forecast-Hub\nThis gives you access to: - model-output/: All model forecasts - target-data/: Observed data (time-series.csv) - hub-config/: Hub configuration files - model-metadata/: Model metadata files\n\n\nRepository Structure\nChina-COVID-19-Forecast-Hub/\n├── model-output/          # Model forecasts by team\n│   ├── GZNL-test_001/\n│   ├── GZNL-test_002/\n│   ├── GZNL-test_003/\n│   └── GZNL-test_004/\n├── target-data/           # Observed/target data  \n│   └── time-series.csv\n├── hub-config/           # Configuration files\n├── model-metadata/       # Model descriptions\n└── README.md\n\n\n\n\nAccessing Individual Files\nYou can directly download individual files using GitHub’s raw file URLs:\n# R example: Load target data\nlibrary(readr)\ntarget_data &lt;- read_csv(\"https://raw.githubusercontent.com/dailypartita/China-COVID-19-Forecast-Hub/main/target-data/time-series.csv\")\n\n# Load a specific model's forecast\nmodel_data &lt;- read_csv(\"https://raw.githubusercontent.com/dailypartita/China-COVID-19-Forecast-Hub/main/model-output/GZNL-test_001/2025-08-28-GZNL-test_001.csv\")\n# Python example: Load target data\nimport pandas as pd\ntarget_data = pd.read_csv(\"https://raw.githubusercontent.com/dailypartita/China-COVID-19-Forecast-Hub/main/target-data/time-series.csv\")\n\n# Load a specific model's forecast  \nmodel_data = pd.read_csv(\"https://raw.githubusercontent.com/dailypartita/China-COVID-19-Forecast-Hub/main/model-output/GZNL-test_001/2025-08-28-GZNL-test_001.csv\")\n\n\n\n\nProgrammatic Access\nUse the GitHub API to programmatically explore repository contents:\n# R example using httr\nlibrary(httr)\nlibrary(jsonlite)\n\n# List all model teams\nresponse &lt;- GET(\"https://api.github.com/repos/dailypartita/China-COVID-19-Forecast-Hub/contents/model-output\")\nteams &lt;- fromJSON(content(response, \"text\"))$name\nprint(teams)\n# Python example using requests\nimport requests\n\n# List all model teams\nresponse = requests.get(\"https://api.github.com/repos/dailypartita/China-COVID-19-Forecast-Hub/contents/model-output\")\nteams = [item['name'] for item in response.json()]\nprint(teams)\n\n\nBatch Download Script\n#!/bin/bash\n# Download all model outputs for a specific date\nDATE=\"2025-08-28\"\nmkdir -p model-outputs-${DATE}\n\nfor team in GZNL-test_001 GZNL-test_002 GZNL-test_003 GZNL-test_004; do\n    wget \"https://raw.githubusercontent.com/dailypartita/China-COVID-19-Forecast-Hub/main/model-output/${team}/${DATE}-${team}.csv\" \\\n         -O \"model-outputs-${DATE}/${team}.csv\"\ndone"
+  },
+  {
+    "objectID": "data.html#data-format",
+    "href": "data.html#data-format",
+    "title": "Accessing Hub Data",
+    "section": "Data Format",
+    "text": "Data Format\nAll model output files in this hub are stored in CSV format and follow the Hubverse data format standards.\n\nTarget Data\nThe target data (target-data/time-series.csv) contains observed SARS-CoV-2 positivity rates among department influenza-like illness (ILI) cases, as reported in China CDC’s weekly National Sentinel Surveillance of Acute Respiratory Infectious Diseases.\n\n\nModel Output Data\nEach model output file contains quantile forecasts with the following columns: - reference_date: The date the forecast was made - target: The forecasting target (wk inc covid prop ili) - target_end_date: The date for which the prediction is made - location: Geographic location code (CN for China) - output_type: Type of prediction (quantile) - output_type_id: Quantile level (0.01, 0.025, 0.05, …, 0.975, 0.99) - value: The predicted value\nFor more details on the data format and hub structure, see the repository README."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Introduction",
+    "section": "",
+    "text": "🎯 项目使命\n\n\n\n基于中国疾控中心哨点监测数据，运用国际先进的预测建模方法，为新型冠状病毒在门急诊流感样病例中的流行趋势提供科学预测，支持公共卫生政策制定和疫情防控决策。\n\n\n\n查看最新预测结果 模型性能评估\n\n\n\n\n\n\n核心指标: 《全国急性呼吸道传染病哨点监测情况》门急诊流感样病例中新型冠状病毒阳性率\n数据来源: 中国疾控中心官方监测报告每周发布\n监测范围: 全国哨点医院(不含港澳台)，涵盖10种呼吸道病原体检测\n时间序列: 2025年1月至9月的完整预测轨迹\n历史对比: 黑色实线展示历史观测数据，彩色阴影显示预测区间\n交互式控件:\n\n📅 日期选择器: Current (2025-08-21) / As of (2025-08-21) 切换\n🎨 模型管理: 4个GZNL-test模型的颜色编码显示/隐藏\n📊 区间调整: 95%置信区间可视化\n⌨️ 键盘导航: 左右方向键浏览不同周次预测\n🔄 Shuffle Colours: 模型颜色随机化功能\n\n\n\n\n\n\n双重视图模式:\n\n📊 Table: 完整的性能指标对比表格\n\n🔥 Plot: 交互式热力图时间序列分析\n\n评估维度: WIS、MAE、区间覆盖率等多指标综合评估\n时间分解: 2025-07-31至2025-08-28按日期的详细表现分析\n颜色编码系统:\n\n🟣 深紫色 (0.1左右): 最优表现\n🟢 绿色 (0.4-0.7): 良好表现\n\n🟡 黄色 (1.5-2.0): 较差表现\n\n筛选功能:\n\nTarget: wk inc covid prop ili\nEvaluation set: Available evaluations\nDisaggregate by: target_end_date\nMetric: MAE/WIS等可选切换\n\n\n\n\n\n基于最新一轮评估(2025-08-21)，我们的4个预测模型表现如下：\n\n\n\n\n\n\n🥇 最佳表现模型: GZNL-test_002\n\n\n\n\nTable视图: 相比基准模型减少44%的WIS误差\nPlot视图: 热力图中深紫色区域最多，时间序列表现最稳定\n预测精度: 最低的加权区间得分(0.5)和优秀的MAE表现\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n模型名称\n相对WIS\n相对MAE\n50%覆盖率\n95%覆盖率\n综合排名\n\n\n\n\nGZNL-test_002\n0.56 ⭐\n1.03\n80%\n100% ⭐\n🥇 第1名\n\n\nGZNL-test_001\n1.00 (基准)\n1.00 (基准)\n100% ⭐\n100% ⭐\n🥈 第2名\n\n\nGZNL-test_004\n1.13\n1.87\n40%\n40%\n🥉 第3名\n\n\nGZNL-test_003\n1.22\n2.20\n40%\n60%\n4️⃣ 第4名\n\n\n\n\n\n\n时间范围: 2025-07-31 → 2025-08-07 → 2025-08-14 → 2025-08-21 → 2025-08-28\n\n🟣 GZNL-test_002: 在大部分时间点表现优异，特别是在2025-08-07左右达到最佳表现\n🟢 GZNL-test_001: 基准模型，整体表现稳定，在中等水平波动\n🟡 GZNL-test_003: 在2025-08-14和2025-08-21表现较差\n\n🟡 GZNL-test_004: 在2025-07-31和2025-08-28表现不佳\n\n\n\n\n\n\n\n\n\n国际标准: 遵循Hubverse框架，与美国CDC FluSight Hub同级\n概率预测: 23个分位数完整预测分布，科学量化不确定性\n多模型集成: 汇聚多个研究团队的预测模型，提高准确性\n自动化流程: GitHub Actions全流程自动化验证、评估、可视化\n\n\n\n\n\n权威数据源: 基于中国疾控中心《全国急性呼吸道传染病哨点监测情况》官方报告\n全面监测: 覆盖10种呼吸道病毒(含新型冠状病毒)及肺炎支原体，全国哨点医院数据\n自动化采集: 使用cn_cdc_crawl工具自动提取CDC每周报告数据\n标准化处理: PDF报告→结构化数据的完整处理链，确保数据一致性\n实时同步: 跟随CDC每周发布节奏(通常周三发布)自动更新\n质量控制: 多层数据验证和异常值检测，确保预测基础数据的可靠性\n\n\n\n\n\n\n\n\n\n\n时间导航: 使用左右方向键或点击日期选择器浏览不同CDC报告周次的预测\n模型对比: 点击左侧模型名称切换显示/隐藏，对比不同研究团队的预测差异\n区间解读: 彩色阴影区域表示95%置信区间，反映新冠病毒阳性率的不确定性\n历史验证: 黑色实线显示CDC实际发布的监测数据，验证预测准确性\n流行趋势: 观察门急诊流感样病例中新冠病毒检出率的季节性变化和流行规律\n\n\n\n\n\n视图切换: Table查看综合排名，Plot观察各模型在不同CDC报告周次的表现\n热力图解读: 深紫色=预测误差小，黄色=预测偏差大，快速识别最佳模型\n指标筛选: 切换MAE/WIS等评估标准，全面了解模型预测能力\n时间维度: 按CDC报告发布日期分解，评估模型对疫情变化的敏感性\n基准比较: 以GZNL-test_001为基准，衡量其他模型的相对改进程度\n\n\n\n\n\n\nWIS (加权区间得分): 综合考虑预测精度和不确定性的指标，越小越好\nMAE (平均绝对误差): 点预测的准确性度量，越小越好\n区间覆盖率: 实际观测值落在预测区间内的比例，应接近名义水平\n相对指标: 以GZNL-test_001为基准(1.0)的相对表现\n\n\n\n\n\n最佳模型识别: GZNL-test_002在WIS和覆盖率指标上表现突出\n预测区间解读: 关注95%置信区间的合理性，过窄可能低估不确定性\n时间序列稳定性: 通过热力图观察模型在不同时期的一致性表现\n\n公共卫生应用: 结合CDC监测数据趋势，为防控决策提供科学依据\n模型改进方向: 基于评估结果优化预测算法，提高准确性\n\n\n\n\n\n\n\n\n\n\n\n⏰ 自动更新时间表\n\n\n\n\nCDC数据采集: 跟随中国疾控中心《全国急性呼吸道传染病哨点监测情况》发布时间\n预测提交截止: 每周三23:59北京时间\n集成预测生成: 每周四09:00北京时间自动生成ensemble预测\nDashboard更新: 新数据可用时立即更新可视化内容\n评估结果: 观测数据发布后实时重新计算各模型表现\n\n\n\n\n\n\n\n\n诚邀研究团队、高校、科研院所参与预测建模：\n参与流程: 1. 模型注册: 在Forecast Hub提交模型元数据 2. 数据获取: - 官方报告：浏览CDC监测情况页面获取最新报告 - 历史数据：使用cn_cdc_crawl自动提取结构化历史数据 3. 预测提交: 每周三23:59前提交CSV格式预测结果 4. 结果展示: 预测结果将在此Dashboard公开展示和评估\n技术要求: - 基础编程能力(R/Python) - 遵循Hubverse标准格式 - 提供23个分位数的概率预测\n\n\n\n\n🐛 问题报告\n💬 参与讨论\n📧 联系我们\n📚 技术文档\n\n\n\n\n\n\n\n\n🏠 Introduction: 当前页面，项目概述和使用指南\n📊 Forecasts: 交互式时间序列预测可视化\n\n🎯 Evaluation: Table和Plot双视图模型性能评估\n👥 About the team: 团队介绍和方法论说明\n💾 Accessing Hub Data: 原始数据获取指南\n\n\n\n\n\n\n\n📊 监测报告: 全国急性呼吸道传染病哨点监测情况 - 中国疾控中心每周发布\n🔍 监测内容: 包含新型冠状病毒、流感病毒、呼吸道合胞病毒等10种病毒及肺炎支原体检测\n📋 监测对象: 全国哨点医院门急诊流感样病例和住院严重急性呼吸道感染病例\n📅 发布频次: 每周更新，覆盖全国范围（不含港澳台）\n\n\n\n\n\n🔧 数据采集: cn_cdc_crawl - 自动化CDC报告数据提取工具\n🔬 建模框架: 基于Hubverse国际标准构建\n💻 开源仓库:\n\n预测中心Hub - 模型注册和数据提交\nDashboard源码 - 可视化平台\n\n📈 技术文档: 详细的参与指南、数据格式、评估方法说明\n\n\n\n🏥 服务公共卫生决策 · 🔬 基于权威监测数据 · 🌏 守护中国健康\n基于中国疾控中心权威数据 · 遵循Hubverse国际标准 · 汇聚多方预测智慧"
+  },
+  {
+    "objectID": "index.html#dashboard功能概览",
+    "href": "index.html#dashboard功能概览",
+    "title": "Introduction",
+    "section": "",
+    "text": "核心指标: 《全国急性呼吸道传染病哨点监测情况》门急诊流感样病例中新型冠状病毒阳性率\n数据来源: 中国疾控中心官方监测报告每周发布\n监测范围: 全国哨点医院(不含港澳台)，涵盖10种呼吸道病原体检测\n时间序列: 2025年1月至9月的完整预测轨迹\n历史对比: 黑色实线展示历史观测数据，彩色阴影显示预测区间\n交互式控件:\n\n📅 日期选择器: Current (2025-08-21) / As of (2025-08-21) 切换\n🎨 模型管理: 4个GZNL-test模型的颜色编码显示/隐藏\n📊 区间调整: 95%置信区间可视化\n⌨️ 键盘导航: 左右方向键浏览不同周次预测\n🔄 Shuffle Colours: 模型颜色随机化功能\n\n\n\n\n\n\n双重视图模式:\n\n📊 Table: 完整的性能指标对比表格\n\n🔥 Plot: 交互式热力图时间序列分析\n\n评估维度: WIS、MAE、区间覆盖率等多指标综合评估\n时间分解: 2025-07-31至2025-08-28按日期的详细表现分析\n颜色编码系统:\n\n🟣 深紫色 (0.1左右): 最优表现\n🟢 绿色 (0.4-0.7): 良好表现\n\n🟡 黄色 (1.5-2.0): 较差表现\n\n筛选功能:\n\nTarget: wk inc covid prop ili\nEvaluation set: Available evaluations\nDisaggregate by: target_end_date\nMetric: MAE/WIS等可选切换\n\n\n\n\n\n基于最新一轮评估(2025-08-21)，我们的4个预测模型表现如下：\n\n\n\n\n\n\n🥇 最佳表现模型: GZNL-test_002\n\n\n\n\nTable视图: 相比基准模型减少44%的WIS误差\nPlot视图: 热力图中深紫色区域最多，时间序列表现最稳定\n预测精度: 最低的加权区间得分(0.5)和优秀的MAE表现\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n模型名称\n相对WIS\n相对MAE\n50%覆盖率\n95%覆盖率\n综合排名\n\n\n\n\nGZNL-test_002\n0.56 ⭐\n1.03\n80%\n100% ⭐\n🥇 第1名\n\n\nGZNL-test_001\n1.00 (基准)\n1.00 (基准)\n100% ⭐\n100% ⭐\n🥈 第2名\n\n\nGZNL-test_004\n1.13\n1.87\n40%\n40%\n🥉 第3名\n\n\nGZNL-test_003\n1.22\n2.20\n40%\n60%\n4️⃣ 第4名\n\n\n\n\n\n\n时间范围: 2025-07-31 → 2025-08-07 → 2025-08-14 → 2025-08-21 → 2025-08-28\n\n🟣 GZNL-test_002: 在大部分时间点表现优异，特别是在2025-08-07左右达到最佳表现\n🟢 GZNL-test_001: 基准模型，整体表现稳定，在中等水平波动\n🟡 GZNL-test_003: 在2025-08-14和2025-08-21表现较差\n\n🟡 GZNL-test_004: 在2025-07-31和2025-08-28表现不佳"
+  },
+  {
+    "objectID": "index.html#技术特色",
+    "href": "index.html#技术特色",
+    "title": "Introduction",
+    "section": "",
+    "text": "国际标准: 遵循Hubverse框架，与美国CDC FluSight Hub同级\n概率预测: 23个分位数完整预测分布，科学量化不确定性\n多模型集成: 汇聚多个研究团队的预测模型，提高准确性\n自动化流程: GitHub Actions全流程自动化验证、评估、可视化\n\n\n\n\n\n权威数据源: 基于中国疾控中心《全国急性呼吸道传染病哨点监测情况》官方报告\n全面监测: 覆盖10种呼吸道病毒(含新型冠状病毒)及肺炎支原体，全国哨点医院数据\n自动化采集: 使用cn_cdc_crawl工具自动提取CDC每周报告数据\n标准化处理: PDF报告→结构化数据的完整处理链，确保数据一致性\n实时同步: 跟随CDC每周发布节奏(通常周三发布)自动更新\n质量控制: 多层数据验证和异常值检测，确保预测基础数据的可靠性"
+  },
+  {
+    "objectID": "index.html#使用指南",
+    "href": "index.html#使用指南",
+    "title": "Introduction",
+    "section": "",
+    "text": "时间导航: 使用左右方向键或点击日期选择器浏览不同CDC报告周次的预测\n模型对比: 点击左侧模型名称切换显示/隐藏，对比不同研究团队的预测差异\n区间解读: 彩色阴影区域表示95%置信区间，反映新冠病毒阳性率的不确定性\n历史验证: 黑色实线显示CDC实际发布的监测数据，验证预测准确性\n流行趋势: 观察门急诊流感样病例中新冠病毒检出率的季节性变化和流行规律\n\n\n\n\n\n视图切换: Table查看综合排名，Plot观察各模型在不同CDC报告周次的表现\n热力图解读: 深紫色=预测误差小，黄色=预测偏差大，快速识别最佳模型\n指标筛选: 切换MAE/WIS等评估标准，全面了解模型预测能力\n时间维度: 按CDC报告发布日期分解，评估模型对疫情变化的敏感性\n基准比较: 以GZNL-test_001为基准，衡量其他模型的相对改进程度\n\n\n\n\n\n\nWIS (加权区间得分): 综合考虑预测精度和不确定性的指标，越小越好\nMAE (平均绝对误差): 点预测的准确性度量，越小越好\n区间覆盖率: 实际观测值落在预测区间内的比例，应接近名义水平\n相对指标: 以GZNL-test_001为基准(1.0)的相对表现\n\n\n\n\n\n最佳模型识别: GZNL-test_002在WIS和覆盖率指标上表现突出\n预测区间解读: 关注95%置信区间的合理性，过窄可能低估不确定性\n时间序列稳定性: 通过热力图观察模型在不同时期的一致性表现\n\n公共卫生应用: 结合CDC监测数据趋势，为防控决策提供科学依据\n模型改进方向: 基于评估结果优化预测算法，提高准确性"
+  },
+  {
+    "objectID": "index.html#数据更新机制",
+    "href": "index.html#数据更新机制",
+    "title": "Introduction",
+    "section": "",
+    "text": "⏰ 自动更新时间表\n\n\n\n\nCDC数据采集: 跟随中国疾控中心《全国急性呼吸道传染病哨点监测情况》发布时间\n预测提交截止: 每周三23:59北京时间\n集成预测生成: 每周四09:00北京时间自动生成ensemble预测\nDashboard更新: 新数据可用时立即更新可视化内容\n评估结果: 观测数据发布后实时重新计算各模型表现"
+  },
+  {
+    "objectID": "index.html#参与贡献",
+    "href": "index.html#参与贡献",
+    "title": "Introduction",
+    "section": "",
+    "text": "诚邀研究团队、高校、科研院所参与预测建模：\n参与流程: 1. 模型注册: 在Forecast Hub提交模型元数据 2. 数据获取: - 官方报告：浏览CDC监测情况页面获取最新报告 - 历史数据：使用cn_cdc_crawl自动提取结构化历史数据 3. 预测提交: 每周三23:59前提交CSV格式预测结果 4. 结果展示: 预测结果将在此Dashboard公开展示和评估\n技术要求: - 基础编程能力(R/Python) - 遵循Hubverse标准格式 - 提供23个分位数的概率预测\n\n\n\n\n🐛 问题报告\n💬 参与讨论\n📧 联系我们\n📚 技术文档"
+  },
+  {
+    "objectID": "index.html#功能导览",
+    "href": "index.html#功能导览",
+    "title": "Introduction",
+    "section": "",
+    "text": "🏠 Introduction: 当前页面，项目概述和使用指南\n📊 Forecasts: 交互式时间序列预测可视化\n\n🎯 Evaluation: Table和Plot双视图模型性能评估\n👥 About the team: 团队介绍和方法论说明\n💾 Accessing Hub Data: 原始数据获取指南\n\n\n\n\n\n\n\n📊 监测报告: 全国急性呼吸道传染病哨点监测情况 - 中国疾控中心每周发布\n🔍 监测内容: 包含新型冠状病毒、流感病毒、呼吸道合胞病毒等10种病毒及肺炎支原体检测\n📋 监测对象: 全国哨点医院门急诊流感样病例和住院严重急性呼吸道感染病例\n📅 发布频次: 每周更新，覆盖全国范围（不含港澳台）\n\n\n\n\n\n🔧 数据采集: cn_cdc_crawl - 自动化CDC报告数据提取工具\n🔬 建模框架: 基于Hubverse国际标准构建\n💻 开源仓库:\n\n预测中心Hub - 模型注册和数据提交\nDashboard源码 - 可视化平台\n\n📈 技术文档: 详细的参与指南、数据格式、评估方法说明\n\n\n\n🏥 服务公共卫生决策 · 🔬 基于权威监测数据 · 🌏 守护中国健康\n基于中国疾控中心权威数据 · 遵循Hubverse国际标准 · 汇聚多方预测智慧"
+  }
+]
