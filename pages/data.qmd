@@ -1,200 +1,144 @@
 ---
 title: "Accessing Hub Data"
-# replace "[hub-bucket-name]" with the name of your hub's bucket which you can find in the `cloud.host.name` property of your hub's `admin.json`.
-hub-bucket-name: "[hub-bucket-name]"
 ---
 
-## Accessing hub data on the cloud
+## Accessing hub data from GitHub
 
-<!-- Remove this page if you're not planning to host your hub's data on the Hubverse's AWS infrastructure -->
+<!-- This hub does not use cloud storage, so data is accessed directly from GitHub -->
 
-To ensure greater access to the data created by and submitted to this hub, real-time copies of its model-output, target, and configuration files are hosted on the Hubverse's Amazon Web Services (AWS) infrastructure, in a public S3 bucket: `{{< meta hub-bucket-name >}}`
+All model-output, target, and configuration files for this hub are hosted on GitHub. You can access the data directly from the repository at [dailypartita/China-COVID-19-Forecast-Hub](https://github.com/dailypartita/China-COVID-19-Forecast-Hub).
 
-**Note**: For efficient storage, all model-output files in S3 are stored in parquet format, even if the original versions in the GitHub repository are .csv.
+GitHub serves as the primary interface for operating the hub and collecting forecasts from modelers. You can access hub data by cloning the repository or downloading files directly from GitHub.
 
-GitHub remains the primary interface for operating the hub and collecting forecasts from modelers. However, the mirrors of hub files on S3 are the most convenient way to access hub data without using git/GitHub or cloning the entire hub to your local machine.
+## Data Access Methods
 
-The sections below provide examples for accessing hub data on the cloud, depending on your goals and preferred tools. The options include:
+The sections below provide examples for accessing hub data depending on your goals and preferred tools:
 
 | Access Method | Description |
 |----|----|
-| hubData (R) | Hubverse R client and R code for accessing hub data |
-| Polars (Python) | Python open-source library for data manipulation |
-| AWS command line interface | Download hub data to your machine and use hubData or Polars for local access |
-
-In general, accessing the data directly from S3 (instead of downloading it first) is more convenient. However, if performance is critical (for example, you're building an interactive visualization), or if you need to work offline, we recommend downloading the data first.
+| Git/GitHub | Clone the repository for full local access |
+| GitHub Raw Files | Direct HTTP access to individual files |
+| GitHub API | Programmatic access to repository contents |
 
 :::{#methods .panel-tabset}
-<!-------------------------------------------------- hubData ------------------------------------------------------->
 
-## hubData (R)
+## Git/GitHub Direct Access
 
-[hubData](https://hubverse-org.github.io/hubData), the Hubverse R client, can create an interactive session for accessing, filtering, and transforming hub model output data stored in S3.
+### Cloning the Repository
 
-hubData is a good choice if you:
+To get a complete local copy of all hub data:
 
--   already use R for data analysis
--   want to interactively explore hub data from the cloud without downloading it
--   want to save a subset of the hub's data (*e.g.*, forecasts for a specific date or target) to your local machine
--   want to save hub data in a different file format (*e.g.*, parquet to .csv)
-
-### Installing hubData
-
-To install hubData and its dependencies (including the dplyr and arrow packages), follow the [instructions in the hubData documentation](https://hubverse-org.github.io/hubData/#installation).
-
-### Using hubData
-
-hubData's [`connect_hub()` function](https://hubverse-org.github.io/hubData/reference/connect_hub.html) returns an [Arrow multi-file dataset](https://arrow.apache.org/docs/r/reference/Dataset.html) that represents a hub's model output data. The dataset can be filtered and transformed using dplyr and then materialized into a local data frame using the [`collect_hub()` function](https://hubverse-org.github.io/hubData/reference/collect_hub.html).
-
-#### Accessing target data
-
-*\[hubData will be updated to access target data once the Hubverse target data standards are finalized.\]*
-
-#### Accessing model output data
-
-Below is an example of using hubData to connect to a hub on S3 and filter the model output data.
-
-``` r
-library(dplyr)
-library(hubData)
-
-bucket_name <- "{{< meta hub-bucket-name >}}"
-hub_bucket <- s3_bucket(bucket_name)
-hub_con <- hubData::connect_hub(hub_bucket, file_format = "parquet", skip_checks = TRUE)
-hub_con %>%
-  dplyr::filter(location == "MA", output_type == "quantile") %>%
-  hubData::collect_hub()
+```sh
+git clone https://github.com/dailypartita/China-COVID-19-Forecast-Hub.git
+cd China-COVID-19-Forecast-Hub
 ```
 
--   [full hubData documentation](https://hubverse-org.github.io/hubData/)
+This gives you access to:
+- `model-output/`: All model forecasts
+- `target-data/`: Observed data (time-series.csv)
+- `hub-config/`: Hub configuration files
+- `model-metadata/`: Model metadata files
 
+### Repository Structure
 
-<!--------------------------------------------------- Polars ------------------------------------------------------->
-
-## Polars (Python)
-
-The Hubverse team is currently developing a Python client (hubDataPy). Until hubDataPy is ready, the [Polars](https://pola.rs/) library is a good option for working with hub data in S3. Similar to pandas, Polars is based on dataframes and series. However, Polars has a more straightforward API and is designed to work with larger-than-memory datasets.
-
-Pandas users can access hub data as described below and then use the `to_pandas()` method to convert a Polars dataframe to pandas format.
-
-Polars is a good choice if you:
-
--   already use Python for data analysis
--   want to interactively explore hub data from the cloud without downloading it
--   want to save a subset of the hub's data (*e.g.*, forecasts for a specific date or target) to your local machine
--   want to save hub data in a different file format (*e.g.*, parquet to .csv)
-
-### Installing polars
-
-Use pip to install Polars:
-
-``` sh
-pip install polars
+```
+China-COVID-19-Forecast-Hub/
+├── model-output/          # Model forecasts by team
+│   ├── GZNL-test_001/
+│   ├── GZNL-test_002/
+│   ├── GZNL-test_003/
+│   └── GZNL-test_004/
+├── target-data/           # Observed/target data  
+│   └── time-series.csv
+├── hub-config/           # Configuration files
+├── model-metadata/       # Model descriptions
+└── README.md
 ```
 
-### Using Polars
+## GitHub Raw Files
 
-The examples below use the Polars [`scan_parquet()` function](https://docs.pola.rs/api/python/dev/reference/api/polars.scan_parquet.html), which returns a [LazyFrame](https://docs.pola.rs/api/python/stable/reference/lazyframe/index.html). LazyFrames do not perform computations until necessary, so any filtering and transforms you apply to the data are deferred until an explicit [`collect()` operation](https://docs.pola.rs/api/python/stable/reference/lazyframe/api/polars.LazyFrame.collect.html#polars.LazyFrame.collect).
+### Accessing Individual Files
 
-#### Accessing target data
+You can directly download individual files using GitHub's raw file URLs:
 
-Get all oracle-output files into a single DataFrame.
+```r
+# R example: Load target data
+library(readr)
+target_data <- read_csv("https://raw.githubusercontent.com/dailypartita/China-COVID-19-Forecast-Hub/main/target-data/time-series.csv")
 
-``` python
-import polars as pl
-
-oracle_data = pl.scan_parquet(
-    # the structure of the s3 link below will depend on how your hub organizes target data
-    "s3://{{< meta hub-bucket-name >}}/target-data/oracle-output/*/*.parquet",
-    storage_options={"skip_signature": "true"}
-)
-
-# filter and transform as needed and collect into a dataframe, for example:
-oracle_dataframe = oracle_data.filter(pl.col("location") == "MA").collect()
+# Load a specific model's forecast
+model_data <- read_csv("https://raw.githubusercontent.com/dailypartita/China-COVID-19-Forecast-Hub/main/model-output/GZNL-test_001/2025-08-28-GZNL-test_001.csv")
 ```
 
-#### Accessing model output data
+```python
+# Python example: Load target data
+import pandas as pd
+target_data = pd.read_csv("https://raw.githubusercontent.com/dailypartita/China-COVID-19-Forecast-Hub/main/target-data/time-series.csv")
 
-Get the model-output files for a specific team (all rounds). This example uses [glob patterns to read from data multiple files into a single dataset](https://docs.pola.rs/user-guide/io/multiple/#reading-into-a-single-dataframe).
-
-``` python
-import polars as pl
-
-lf = pl.scan_parquet(
-    "s3://{{< meta hub-bucket-name >}}/model-output/[modeling team name]/*.parquet",
-    storage_options={"skip_signature": "true"}
-)
+# Load a specific model's forecast  
+model_data = pd.read_csv("https://raw.githubusercontent.com/dailypartita/China-COVID-19-Forecast-Hub/main/model-output/GZNL-test_001/2025-08-28-GZNL-test_001.csv")
 ```
 
-#### Using partitions (hive-style)
+## GitHub API
 
-If your data uses hive-style partitioning, Polars can use the partitions to filter the data before reading it.
+### Programmatic Access
 
-``` python
-from datetime import datetime
-import polars as pl
+Use the GitHub API to programmatically explore repository contents:
 
-oracle_data = pl.scan_parquet(
-    "s3://{{< meta hub-bucket-name >}}/target-data/oracle-output/",
-    hive_partitioning=True,
-    storage_options={"skip_signature": "true"}) \
-.filter(pl.col("nowcast_date") == datetime(2025, 2, 5)) \
-.collect()
+```r
+# R example using httr
+library(httr)
+library(jsonlite)
+
+# List all model teams
+response <- GET("https://api.github.com/repos/dailypartita/China-COVID-19-Forecast-Hub/contents/model-output")
+teams <- fromJSON(content(response, "text"))$name
+print(teams)
 ```
 
--   [Full documentation of the Polars Python API](https://docs.pola.rs/api/python/stable/reference/)
+```python
+# Python example using requests
+import requests
 
-<!--------------------------------------------------- AWS CLI ------------------------------------------------------->
+# List all model teams
+response = requests.get("https://api.github.com/repos/dailypartita/China-COVID-19-Forecast-Hub/contents/model-output")
+teams = [item['name'] for item in response.json()]
+print(teams)
+```
 
-## AWS CLI
+### Batch Download Script
 
-AWS provides a terminal-based command line interface (CLI) for exploring and downloading S3 files. This option is ideal if you:
+```bash
+#!/bin/bash
+# Download all model outputs for a specific date
+DATE="2025-08-28"
+mkdir -p model-outputs-${DATE}
 
--   plan to work with hub data offline but don't want to use git or GitHub
--   want to download a subset of the data (instead of the entire hub)
--   are using the data for an application that requires local storage or fast response times
-
-### Installing the AWS CLI
-
--   Install the AWS CLI using the [instructions here](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)
--   You can skip the instructions for setting up security credentials, since Hubverse data is public
-
-### Using the AWS CLI
-
-When using the AWS CLI, the `--no-sign-request` option is required, since it tells AWS to bypass a credential check (*i.e.*, `--no-sign-request` allows anonymous access to public S3 data).
-
-:::{.callout-note}
-
-Files in the bucket's `raw` directory should not be used for analysis (they're for internal use only).
+for team in GZNL-test_001 GZNL-test_002 GZNL-test_003 GZNL-test_004; do
+    wget "https://raw.githubusercontent.com/dailypartita/China-COVID-19-Forecast-Hub/main/model-output/${team}/${DATE}-${team}.csv" \
+         -O "model-outputs-${DATE}/${team}.csv"
+done
+```
 
 :::
 
-List all directories in the hub's S3 bucket:
+## Data Format
 
-``` sh
-aws s3 ls {{< meta hub-bucket-name >}} --no-sign-request
-```
+All model output files in this hub are stored in CSV format and follow the [Hubverse data format standards](https://hubverse.io/en/latest/user-guide/model-output.html).
 
-List all files in the hub's bucket:
+### Target Data
 
-``` sh
-aws s3 ls {{< meta hub-bucket-name >}} --recursive --no-sign-request
-```
+The target data (`target-data/time-series.csv`) contains observed SARS-CoV-2 positivity rates among department influenza-like illness (ILI) cases, as reported in China CDC's weekly National Sentinel Surveillance of Acute Respiratory Infectious Diseases.
 
-Download all of target-data contents to your current working directory:
+### Model Output Data
 
-``` sh
-aws s3 cp s3://{{< meta hub-bucket-name >}}/target-data/ . --recursive --no-sign-request
-```
+Each model output file contains quantile forecasts with the following columns:
+- `reference_date`: The date the forecast was made
+- `target`: The forecasting target (`wk inc covid prop ili`)
+- `target_end_date`: The date for which the prediction is made
+- `location`: Geographic location code (`CN` for China)
+- `output_type`: Type of prediction (`quantile`)
+- `output_type_id`: Quantile level (0.01, 0.025, 0.05, ..., 0.975, 0.99)
+- `value`: The predicted value
 
-Download the model-output files for a specific team:
-
-``` sh
-aws s3 cp s3://{{< meta hub-bucket-name >}}/[modeling-team-name]/UMass-flusion/ . --recursive --no-sign-request
-```
-
--   [Full documentation for `aws s3 ls`](https://docs.aws.amazon.com/cli/latest/reference/s3/ls.html)
--   [Full documentation for `aws s3 cp`](https://docs.aws.amazon.com/cli/latest/reference/s3/cp.html)
-
-:::
-
+For more details on the data format and hub structure, see the [repository README](https://github.com/dailypartita/China-COVID-19-Forecast-Hub/blob/main/README.md).
