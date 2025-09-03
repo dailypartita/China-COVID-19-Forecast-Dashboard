@@ -1,6 +1,6 @@
 ---
-hub: "cdcepi/FluSight-forecast-hub/"
-title: "Example Hub Dashboard Website"
+hub: "dailypartita/China-COVID-19-Forecast-Hub/"
+title: "China COVID-19 Forecast Hub Dashboard"
 pages:
   - "about.md"
   - "data.qmd"
