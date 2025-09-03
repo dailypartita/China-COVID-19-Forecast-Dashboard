@@ -15,9 +15,7 @@ the following:
 3. Update `predtimechart-config.yml` according to the instructions at
    [hub_predtimechart](https://github.com/hubverse-org/hub-dashboard-predtimechart/tree/main?tab=readme-ov-file#required-hub-configuration).
 4. (Optional) Add `predevals-config.yml` if you have oracle output that you can
-   use to generate predevals data. (See below for a link to the documentation and
-   [reichlab/flusight-dashboard](https://github.com/reichlab/flusight-dashboard/blob/main/predevals-config.yml)
-   for an example).
+   use to generate predevals data. **Note: This configuration has been removed for this hub as no oracle data is currently available.**
 5. (Optional) If your hub has an S3 bucket associated with it (you can find
    this in the `cloud.host.name` property of the `hub-config/admin.json` file of your hub), and you are including a `data.qmd` page, you can add this
    information to the `hub-bucket-name` key in the YAML header of
@@ -48,12 +46,11 @@ If you do not want a forecasts visualization on your site, you can remove the
 
 ### PredEvals Visualization
 
-Edit the [`predevals-config.yml`](predevals-config.yml) file to match your hub schema.
-You can find instructions to do so [in the PredEvals visualization guide](https://docs.hubverse.io/en/latest/user-guide/dashboards.html#dashboard-predevals).
+**Note: PredEvals visualization has been disabled for this hub.** The `predevals-config.yml` file has been removed because no oracle data source is currently available for model evaluation.
 
-
-If you do not want an evaluations visualization on your site, you can remove the
-`predevals-config.yml` file.
+If you want to add evaluations visualization to your site in the future, you will need to:
+1. Set up an oracle data source (ground truth data for evaluation)
+2. Create a `predevals-config.yml` file following [the PredEvals visualization guide](https://docs.hubverse.io/en/latest/user-guide/dashboards.html#dashboard-predevals).
 
 ### Dashboard Website
 
