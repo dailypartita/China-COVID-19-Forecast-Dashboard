@@ -156,5 +156,5 @@ title: "Introduction"
 ::: {style='text-align: center; margin-top: 40px; padding: 20px; background-color: #f8f9fa; border-radius: 10px;'}
 **🏥 为公共卫生服务 · 🔬 基于科学建模 · 🌏 服务中国健康**
 
-*Built with ❤️ using [Hubverse](https://hubverse.io/) | Last updated: {{ 今天日期 }}*
+*Built with ❤️ using [Hubverse](https://hubverse.io/) | Last updated: 2025-09-04*
 :::
