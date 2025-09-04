@@ -8,4 +8,4 @@ disclaimer: "此dashboard展示中国COVID-19预测结果，数据来源于中�
 target_data_file_name: 'time-series.csv'
 task_id_text:
   location: 
-    "CN": "中国"
+    "CN": "China"
