@@ -6,11 +6,9 @@ targets:
   - ae_median
   - interval_coverage_50
   - interval_coverage_95
-  - crps
   relative_metrics:
   - wis
   - ae_median
-  - crps
   baseline: GZNL-test_001
   disaggregate_by:
   - location
@@ -18,30 +16,19 @@ targets:
   - horizon
   - target_end_date
 eval_sets:
-- eval_set_name: Current forecast
+- eval_set_name: All available evaluations
   round_filters:
     min: '2025-08-21'
-  task_filters:
-    location:
-    - "CN"
-    horizon:
-    - 0
-    - 1
-    - 2
-    - 3
-- eval_set_name: Recent forecasts
-  round_filters:
-    min: '2025-08-01'
     max: '2025-08-21'
   task_filters:
     location:
     - "CN"
     horizon:
+    - -3
+    - -2
     - -1
     - 0
     - 1
-    - 2
-    - 3
 task_id_text:
   location:
     CN: China
