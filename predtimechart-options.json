@@ -12,7 +12,7 @@
             "location": [
                 {
                     "value": "CN",
-                    "text": "China"
+                    "text": "\u4e2d\u56fd"
                 }
             ]
         }
@@ -43,6 +43,6 @@
         "GZNL-test_001",
         "GZNL-test_002"
     ],
-    "disclaimer": "This is a disclaimer. It presents important information for your stakeholders.",
+    "disclaimer": "\u6b64dashboard\u5c55\u793a\u4e2d\u56fdCOVID-19\u9884\u6d4b\u7ed3\u679c\uff0c\u6570\u636e\u6765\u6e90\u4e8e\u4e2d\u56fd\u75be\u63a7\u4e2d\u5fc3\u6bcf\u5468\u6025\u6027\u547c\u5438\u9053\u4f20\u67d3\u75c5\u54e8\u70b9\u76d1\u6d4b\u3002",
     "initial_xaxis_range": null
 }
