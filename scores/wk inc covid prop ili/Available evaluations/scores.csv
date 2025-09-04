@@ -1,0 +1,5 @@
+"model_id","wis_scaled_relative_skill","wis","ae_median_scaled_relative_skill","ae_median","interval_coverage_50","interval_coverage_95","n"
+"GZNL-test_001",1,0.910311304347826,1,0.77,1,1,5
+"GZNL-test_002",0.56201127564579,0.511605217391304,1.03116883116883,0.794,0.8,1,5
+"GZNL-test_003",1.22122580139809,1.11169565217391,2.2,1.694,0.4,0.6,5
+"GZNL-test_004",1.12658736906056,1.0255452173913,1.86753246753247,1.438,0.4,0.4,5
