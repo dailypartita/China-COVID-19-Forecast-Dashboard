@@ -22,6 +22,9 @@ eval_sets:
     location:
     - "CN"
     horizon:
+    - -3
+    - -2
+    - -1
     - 0
     - 1
 task_id_text:
