@@ -11,8 +11,8 @@ targets:
   - ae_median
   baseline: GZNL-test_001
   disaggregate_by:
-  - location
   - target_end_date
+  - location
   - horizon
 eval_sets:
 - eval_set_name: Available evaluations
