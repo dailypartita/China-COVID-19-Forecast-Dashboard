@@ -28,11 +28,11 @@
     "initial_interval": "95%",
     "available_as_ofs": {
         "wk inc covid prop ili": [
-            "2025-08-28"
+            "2025-08-21"
         ]
     },
-    "initial_as_of": "2025-08-28",
-    "current_date": "2025-08-28",
+    "initial_as_of": "2025-08-21",
+    "current_date": "2025-08-21",
     "models": [
         "GZNL-test_001",
         "GZNL-test_002",
