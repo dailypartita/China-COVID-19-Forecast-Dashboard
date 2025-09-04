@@ -8,6 +8,7 @@ on:
     branches: [main]
     paths:
       - predtimechart-config.yml
+      - predevals-config.yml
   workflow_dispatch:
     inputs:
       regenerate:

@@ -7,8 +7,8 @@ the following:
 
 1. Add markdown content to `pages/`
 2. Update `site-config.yml`
-    i. `hub` is the github repository (`owner/repo`) for your active hub. This example defaults to
-       the CDC FluSight hub (`cdcepi/FluSight-forecast-hub`)
+    i. `hub` is the github repository (`owner/repo`) for your active hub. This is configured to use
+       the China COVID-19 Forecast Hub (`dailypartita/China-COVID-19-Forecast-Hub`)
     ii. `title` is the title of your dashboard
     iii. `pages` is a list of additional optional pages you want included in the top bar after the
          home page (index.html) and forecasts (forecast.html).
@@ -46,11 +46,12 @@ If you do not want a forecasts visualization on your site, you can remove the
 
 ### PredEvals Visualization
 
-**Note: PredEvals visualization has been disabled for this hub.** The `predevals-config.yml` file has been removed because no oracle data source is currently available for model evaluation.
+Edit the [`predevals-config.yml`](predevals-config.yml) file to match your hub schema.
+You can find instructions to do so [in the PredEvals visualization guide](https://docs.hubverse.io/en/latest/user-guide/dashboards.html#dashboard-predevals).
 
-If you want to add evaluations visualization to your site in the future, you will need to:
-1. Set up an oracle data source (ground truth data for evaluation)
-2. Create a `predevals-config.yml` file following [the PredEvals visualization guide](https://docs.hubverse.io/en/latest/user-guide/dashboards.html#dashboard-predevals).
+**Note: This configuration has been simplified to use target data from the hub for evaluation.**
+
+If you do not want an evaluations visualization on your site, you can remove the `predevals-config.yml` file.
 
 ### Dashboard Website
 
