@@ -1,136 +1,137 @@
-# Template Hubverse Dashboard Repository
+# China COVID-19 Forecast Hub Dashboard
 
-## Quickstart
+## 项目概述
 
-Use this template to create a dashboard repository for your hub and then do
-the following:
+中国COVID-19预测中心Dashboard是一个基于[Hubverse框架](https://hubverse.io/)构建的交互式预测与评估平台，专门用于展示和评估中国COVID-19流感样疾病(ILI)的预测模型表现。
 
-1. Add markdown content to `pages/`
-2. Update `site-config.yml`
-    i. `hub` is the github repository (`owner/repo`) for your active hub. This is configured to use
-       the China COVID-19 Forecast Hub (`dailypartita/China-COVID-19-Forecast-Hub`)
-    ii. `title` is the title of your dashboard
-    iii. `pages` is a list of additional optional pages you want included in the top bar after the
-         home page (index.html) and forecasts (forecast.html).
-3. Update `predtimechart-config.yml` according to the instructions at
-   [hub_predtimechart](https://github.com/hubverse-org/hub-dashboard-predtimechart/tree/main?tab=readme-ov-file#required-hub-configuration).
-4. (Optional) Add `predevals-config.yml` if you have oracle output that you can
-   use to generate predevals data. **Note: This configuration has been removed for this hub as no oracle data is currently available.**
-5. (Optional) If your hub has an S3 bucket associated with it (you can find
-   this in the `cloud.host.name` property of the `hub-config/admin.json` file of your hub), and you are including a `data.qmd` page, you can add this
-   information to the `hub-bucket-name` key in the YAML header of
-   [pages/data.qmd](pages/data.qmd). This will automatically populate the data
-   template with the s3 bucket name in the appropriate locations in the page.
+🌐 **在线访问**: [https://dailypartita.github.io/China-COVID-19-Forecast-Dashboard/](https://dailypartita.github.io/China-COVID-19-Forecast-Dashboard/)
 
-Once these steps are performed, the workflows will automatically generate the
-website on the `gh-pages` branch on your behalf. Once this branch is created,
-you can activate your website to deploy from this branch.
+📊 **数据源**: [China-COVID-19-Forecast-Hub](https://github.com/dailypartita/China-COVID-19-Forecast-Hub)
 
-> [!NOTE]
->
-> At the moment, the first time you create your repository, you will need to
-> manually switch on your github pages by going to `<repo>/settings/pages` and
-> selecting `gh-pages` as the branch to deploy from:
->
-> ![screenshot of the "Build and Deployment" section of the pages setting. There are two sub-headings that say "source" and "branch". The Source heading has a dropdown that is selected to "Deploy from a branch". The Branch heading shows a dropdown with `gh-pages`, `main`, `ptc/data`, and `None` as options for the "branch" dropdown. A red arrow is pointing to the `gh-pages` option, which is highlighted.](pages.png)
+## ✨ 主要功能
 
-## Configuration
+### 📈 预测可视化
+- **目标指标**: 周新增COVID-19流感样疾病比例 (wk inc covid prop ili)
+- **预测区间**: 从-3周(回测)到+6周的预测范围
+- **概率预测**: 基于23个分位数的概率分布预测
+- **交互式图表**: 实时展示模型预测结果与历史数据对比
 
-### PredTimeChart Forecasts Visualization
+### 🎯 模型评估
+- **评估指标**: WIS、MAE、区间覆盖率等多维度评估
+- **模型对比**: 4个预测模型的综合性能比较
+- **相对性能**: 基于基准模型的相对评估分析
+- **可视化结果**: 表格和热力图形式展示模型表现
 
-Edit the [`predtimechart-config.yml`](predtimechart-config.yml) file to match your hub schema.
-You can find instructions to do so [in the PredTimeChart visualization guide](https://docs.hubverse.io/en/latest/user-guide/dashboards.html#dashboard-ptc).
+### 📊 数据管理
+- **目标数据**: 基于time-series.csv的历史观测数据
+- **Oracle数据**: 用于模型评估的标准参考数据
+- **模型输出**: 支持多模型的标准化预测结果格式
 
-If you do not want a forecasts visualization on your site, you can remove the
-`predtimechart-config.yml` file.
+## 🏆 模型性能概览
 
-### PredEvals Visualization
+根据最新评估结果(2025-08-21轮次)：
 
-Edit the [`predevals-config.yml`](predevals-config.yml) file to match your hub schema.
-You can find instructions to do so [in the PredEvals visualization guide](https://docs.hubverse.io/en/latest/user-guide/dashboards.html#dashboard-predevals).
+| 模型 | Rel. WIS | WIS | Rel. MAE | MAE | 50% Cov. | 95% Cov. | 排名 |
+|------|----------|-----|----------|-----|----------|----------|------|
+| **GZNL-test_002** | **0.56** | **0.5** | 1.03 | 0.8 | 80.0 | 100.0 | 🥇 |
+| GZNL-test_001 | 1.00 | 0.9 | 1.00 | 0.8 | 100.0 | 100.0 | 🥈 |
+| GZNL-test_004 | 1.13 | 1.0 | 1.87 | 1.4 | 40.0 | 40.0 | 🥉 |
+| GZNL-test_003 | 1.22 | 1.1 | 2.20 | 1.7 | 40.0 | 60.0 | ❌ |
 
-**Note: This configuration has been simplified to use target data from the hub for evaluation.**
+**最佳模型**: GZNL-test_002 (相比基准模型性能提升44%)
 
-If you do not want an evaluations visualization on your site, you can remove the `predevals-config.yml` file.
+## 🛠️ 技术架构
 
-### Dashboard Website
+### 框架与工具
+- **Dashboard框架**: [Hubverse Dashboard](https://docs.hubverse.io/en/latest/user-guide/dashboards.html)
+- **前端**: Quarto + Bootstrap
+- **数据处理**: R + hubverse生态系统
+- **部署**: GitHub Actions + GitHub Pages
+- **可视化**: PredTimeChart + PredEvals
 
-#### Configuration
+### 核心组件
+- **PredTimeChart**: 预测时间序列可视化模块
+- **PredEvals**: 模型评估与比较模块  
+- **自动化流程**: 每周四17:33 UTC自动更新数据
+- **响应式设计**: 支持桌面和移动端访问
 
-The [`site-config.yml`](site-config.yml) Is a simplified form of [A Quarto Website](https://quarto.org/docs/websites/#config-file). This simplified form is intended to allow you to set up a dashboard website in a manner of minutes while allowing for flexibility of theme.
+## 📋 配置文件
 
-A simple configuration is presented in [the template `site-config.yml`](https://github.com/hubverse-org/hub-dashboard-template/blob/main/site-config.yml) file
-with three keys:
+### 关键配置
+- [`site-config.yml`](site-config.yml) - 网站基本配置
+- [`predtimechart-config.yml`](predtimechart-config.yml) - 预测图表配置
+- [`predevals-config.yml`](predevals-config.yml) - 模型评估配置
 
- - hub: the GitHub slug to your active hub that contains quantile forecast data
- - title: the title of your hub dashboard website
- - pages: a [YAML array](https://www.commonwl.org/user_guide/topics/yaml-guide.html#arrays) that lists files _relative to [the `pages` directory](pages/)_ that should be included in the dashboard site. The name of each page is encoded in the `title:` element of the file header (but this can be overridden with [site customization](#customization)).
+### 数据配置
+- **评估期间**: 2025-08-21起的所有可用轮次
+- **评估范围**: 中国(CN)地区，horizons -3到1
+- **基准模型**: GZNL-test_001
+- **评估指标**: WIS, AE_median, interval_coverage_50, interval_coverage_95
 
-Other than the `hub` field all remaining fields have the following mapping equivalents in the Quarto configuration file:
+## 🚀 快速开始
 
-| `site-config.yml`  | `_quarto.yml` |
-| ------------------ | ------------- |
-| `.title`           | `.website.title` |
-| `.pages`           | [`.website.navbar.left`](https://quarto.org/docs/websites/website-navigation.html#top-navigation) |
-| `.html` (optional) | [`.format.html`](https://quarto.org/docs/reference/formats/html.html#format-options) |
+### 查看在线Dashboard
+直接访问: [https://dailypartita.github.io/China-COVID-19-Forecast-Dashboard/](https://dailypartita.github.io/China-COVID-19-Forecast-Dashboard/)
 
-#### Pages
-
-In the `pages/` directory, you will see three pages:
-
-1. `index.qmd` this is the home page for the dashboard website. It is required.
-2. `data.qmd` this is an _optional_ template that provides instructions for how
-   to access data for a hub locally or via S3. If you do not have an S3-enabled
-   hub, you can remove this page (and remove it from the `site.yml` file). If
-   you have an S3-enabled hub, add your hub's bucket name to the
-   `hub-bucket-name` key. For example, if your are building a dashboard for the
-   [CDC flusight
-   hub](https://hubverse.io/community/hubs.html#flusight-forecast-hub), then
-   you would use `hub-bucket-name: "cdcepi-flusight-forecast-hub"`
-3. `about.md` this _optional_ page demonstrates that you can add any extra
-   pages to the dashboard site. You can either replace the page with useful
-   information or you can remove it altogether (and remove it from the
-   `site.yml` file).
-
-#### Customization
-
-When the page is built with [the hub dashboard site builder](https://github.com/hubverse-org/hub-dash-site-builder), this configuration file is merged with [the default quarto config file](https://github.com/hubverse-org/hub-dash-site-builder/blob/main/static/_quarto.yml). This allows for customization of the page. Below
-are examples of customization.
-
-##### Icons added to pages
-
-You can add icons to the page title bars with a YAML map. If you wanted to add an icon of people for the "about" page, you would use `.pages.icon: "people-fill"`
-
-```yaml
-pages:
-  - icon: "people-fill"
-    href: "about.md"
-  - icon: "mortarboard-fill"
-    href: "citation.md"
+### 本地部署
+```bash
+git clone https://github.com/dailypartita/China-COVID-19-Forecast-Dashboard.git
+cd China-COVID-19-Forecast-Dashboard
+# 按照.github/workflows/中的说明配置GitHub Actions
 ```
 
-##### Theme
+### 更新数据
+- **自动更新**: 每周四17:33 UTC通过GitHub Actions自动执行
+- **手动触发**: 在GitHub Actions页面手动运行workflows
 
-The default site is built on top of the [Bootstrip yeti theme](https://bootswatch.com/yeti/) with [custom CSS](https://github.com/hubverse-org/hub-dash-site-builder/blob/main/static/resources/css/styles.css).
+## 📊 数据访问
 
-If you wanted to use [a different theme](https://quarto.org/docs/output-formats/html-themes.html), you can change it by setting `.html.theme`. You can reset the css by setting `.html.css: null`
+### Hub数据仓库
+- **主仓库**: [China-COVID-19-Forecast-Hub](https://github.com/dailypartita/China-COVID-19-Forecast-Hub)
+- **模型输出**: `/model-output/` 目录
+- **目标数据**: `/target-data/time-series.csv`
+- **Oracle数据**: `/target-data/oracle-output.csv`
 
-```yaml
-html:
-  theme: "litera"
-  css: null
-```
+### 配置信息
+- **任务配置**: `/hub-config/tasks.json`
+- **模型元数据**: `/model-metadata/` 目录
 
-##### Contents
+## 🔄 自动化工作流
 
-If you wanted to add custom HTML to appear at the bottom or top of every page,
-you can use `.html.include-after-body` or `.html.include-before-body`. Remeber
-that all resources are _relative to the `pages/` directory_, so if you wanted
-to include an HTML snippet at the end of every page you would:
+### 数据构建流程
+1. **数据获取**: 从Hub仓库获取最新模型输出
+2. **Oracle生成**: 基于目标数据生成评估标准
+3. **评估计算**: 运行hubPredEvalsData计算模型评分
+4. **可视化更新**: 更新PredTimeChart和PredEvals数据
+5. **网站部署**: 自动部署到GitHub Pages
 
-1. add a file called `resources/after-body.html` into `pages/`
-2. add this to your yaml:
-   ```yaml
-   html:
-     include-after-body: "resources/after-body.html"
-   ```
+### 更新频率
+- **网站内容**: 每次main分支更新时重建
+- **预测数据**: 每周四自动更新
+- **评估数据**: 每周四自动更新
+
+## 🤝 贡献指南
+
+### 添加新模型
+1. 在Hub仓库的`/model-metadata/`中添加模型元数据
+2. 在`/model-output/`中上传预测结果
+3. Dashboard将自动识别并包含新模型
+
+### 自定义配置
+- 修改`predevals-config.yml`调整评估设置
+- 修改`predtimechart-config.yml`调整可视化选项
+- 在`pages/`目录添加自定义页面
+
+## 📞 联系方式
+
+- **项目维护**: [GitHub Issues](https://github.com/dailypartita/China-COVID-19-Forecast-Dashboard/issues)
+- **数据问题**: [Hub Issues](https://github.com/dailypartita/China-COVID-19-Forecast-Hub/issues)
+- **技术支持**: 参考[Hubverse文档](https://docs.hubverse.io/)
+
+## 📄 许可证
+
+本项目遵循相应的开源许可证，详见LICENSE文件。
+
+---
+
+*Built with ❤️ using the [Hubverse](https://hubverse.io/) ecosystem*
