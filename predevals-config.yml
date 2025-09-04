@@ -29,30 +29,15 @@ eval_sets:
     - 1
     - 2
     - 3
-    - 4
-    - 5
-    - 6
 - eval_set_name: Recent forecasts
   round_filters:
-    min: '2025-07-01'
+    min: '2025-08-01'
     max: '2025-08-21'
   task_filters:
     location:
     - "CN"
     horizon:
     - -1
-    - 0
-    - 1
-    - 2
-    - 3
-- eval_set_name: Last 4 rounds
-  round_filters:
-    min: '2025-07-31'
-    n_last: 4
-  task_filters:
-    location:
-    - "CN"
-    horizon:
     - 0
     - 1
     - 2

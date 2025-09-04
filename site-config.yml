@@ -1,5 +1,5 @@
 ---
-hub: "dailypartita/China-COVID-19-Forecast-Hub/"
+hub: "dailypartita/China-COVID-19-Forecast-Hub"
 title: "China COVID-19 Forecast Hub Dashboard"
 pages:
   - "about.md"
