@@ -18,7 +18,8 @@ title: "Introduction"
 
 ### 🔮 预测可视化
 - **核心指标**: 《全国急性呼吸道传染病哨点监测情况》门急诊流感样病例中新型冠状病毒阳性率
-- **数据来源**: 中国疾控中心每周发布的官方监测报告
+- **数据来源**: [中国疾控中心官方监测报告](https://www.chinacdc.cn/jksj/jksj04_14275/)每周发布
+- **监测范围**: 全国哨点医院(不含港澳台)，涵盖10种呼吸道病原体检测
 - **时间序列**: 2025年1月至9月的完整预测轨迹
 - **历史对比**: 黑色实线展示历史观测数据，彩色阴影显示预测区间
 - **交互式控件**: 
@@ -80,11 +81,12 @@ title: "Introduction"
 - **自动化流程**: GitHub Actions全流程自动化验证、评估、可视化
 
 ### 数据质量保证
-- **权威数据源**: 基于中国疾控中心《全国急性呼吸道传染病哨点监测情况》
-- **自动化采集**: 使用[cn_cdc_crawl](https://github.com/dailypartita/cn_cdc_crawl)工具自动提取CDC报告数据
-- **标准化处理**: PDF报告→结构化数据的完整处理链
-- **实时同步**: 跟随CDC每周发布节奏自动更新
-- **质量控制**: 多层数据验证确保准确性和一致性
+- **权威数据源**: 基于中国疾控中心[《全国急性呼吸道传染病哨点监测情况》](https://www.chinacdc.cn/jksj/jksj04_14275/)官方报告
+- **全面监测**: 覆盖10种呼吸道病毒(含新型冠状病毒)及肺炎支原体，全国哨点医院数据
+- **自动化采集**: 使用[cn_cdc_crawl](https://github.com/dailypartita/cn_cdc_crawl)工具自动提取CDC每周报告数据
+- **标准化处理**: PDF报告→结构化数据的完整处理链，确保数据一致性
+- **实时同步**: 跟随CDC每周发布节奏(通常周三发布)自动更新
+- **质量控制**: 多层数据验证和异常值检测，确保预测基础数据的可靠性
 
 ## 📋 使用指南
 
@@ -135,7 +137,9 @@ title: "Introduction"
 
 **参与流程**:
 1. **模型注册**: 在[Forecast Hub](https://github.com/dailypartita/China-COVID-19_Forecast_Hub)提交模型元数据
-2. **数据获取**: 使用[cn_cdc_crawl](https://github.com/dailypartita/cn_cdc_crawl)获取历史监测数据
+2. **数据获取**: 
+   - 官方报告：浏览[CDC监测情况页面](https://www.chinacdc.cn/jksj/jksj04_14275/)获取最新报告
+   - 历史数据：使用[cn_cdc_crawl](https://github.com/dailypartita/cn_cdc_crawl)自动提取结构化历史数据
 3. **预测提交**: 每周三23:59前提交CSV格式预测结果
 4. **结果展示**: 预测结果将在此Dashboard公开展示和评估
 
@@ -160,9 +164,16 @@ title: "Introduction"
 - 💾 **Accessing Hub Data**: 原始数据获取指南
 
 ### 📖 延伸资源
-- 📊 **官方数据源**: [中国疾控中心《全国急性呼吸道传染病哨点监测情况》](https://www.chinacdc.cn/)
-- 🛠 **数据工具**: [cn_cdc_crawl](https://github.com/dailypartita/cn_cdc_crawl) - CDC数据自动采集工具
-- 🔬 **技术框架**: 基于[Hubverse](https://docs.hubverse.io/)国际标准构建
+
+#### 🏥 官方数据源
+- 📊 **监测报告**: [全国急性呼吸道传染病哨点监测情况](https://www.chinacdc.cn/jksj/jksj04_14275/) - 中国疾控中心每周发布
+- 🔍 **监测内容**: 包含新型冠状病毒、流感病毒、呼吸道合胞病毒等10种病毒及肺炎支原体检测
+- 📋 **监测对象**: 全国哨点医院门急诊流感样病例和住院严重急性呼吸道感染病例
+- 📅 **发布频次**: 每周更新，覆盖全国范围（不含港澳台）
+
+#### 🛠 技术工具与平台
+- 🔧 **数据采集**: [cn_cdc_crawl](https://github.com/dailypartita/cn_cdc_crawl) - 自动化CDC报告数据提取工具
+- 🔬 **建模框架**: 基于[Hubverse](https://docs.hubverse.io/)国际标准构建
 - 💻 **开源仓库**: 
   - [预测中心Hub](https://github.com/dailypartita/China-COVID-19_Forecast_Hub) - 模型注册和数据提交
   - [Dashboard源码](https://github.com/dailypartita/China-COVID-19-Forecast-Dashboard) - 可视化平台
