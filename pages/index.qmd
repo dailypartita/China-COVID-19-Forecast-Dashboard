@@ -6,7 +6,7 @@ title: "Introduction"
 
 :::{.callout-note appearance="simple"}
 ## 🎯 项目使命
-提供基于科学建模的COVID-19流感样疾病预测，支持公共卫生决策制定和疫情防控工作。
+基于中国疾控中心哨点监测数据，运用国际先进的预测建模方法，为新型冠状病毒在门急诊流感样病例中的流行趋势提供科学预测，支持公共卫生政策制定和疫情防控决策。
 :::
 
 ::: {style='display:flex; align-items: center; justify-content: center; margin: 30px 0;'}
@@ -17,7 +17,8 @@ title: "Introduction"
 ## 📊 Dashboard功能概览
 
 ### 🔮 预测可视化
-- **核心指标**: 科室流感中SARS-CoV-2阳性率 (SARS-CoV-2 positivity rate among department influenza)
+- **核心指标**: 《全国急性呼吸道传染病哨点监测情况》门急诊流感样病例中新型冠状病毒阳性率
+- **数据来源**: 中国疾控中心每周发布的官方监测报告
 - **时间序列**: 2025年1月至9月的完整预测轨迹
 - **历史对比**: 黑色实线展示历史观测数据，彩色阴影显示预测区间
 - **交互式控件**: 
@@ -73,33 +74,35 @@ title: "Introduction"
 ## 🔧 技术特色
 
 ### 先进的建模框架
-- **标准化协议**: 遵循[Hubverse](https://hubverse.io/)国际标准
-- **概率预测**: 提供完整的预测分布而非点估计
-- **集成评估**: 多指标综合评价模型性能
-- **自动化流程**: GitHub Actions驱动的数据更新机制
+- **国际标准**: 遵循[Hubverse](https://hubverse.io/)框架，与美国CDC FluSight Hub同级
+- **概率预测**: 23个分位数完整预测分布，科学量化不确定性
+- **多模型集成**: 汇聚多个研究团队的预测模型，提高准确性
+- **自动化流程**: GitHub Actions全流程自动化验证、评估、可视化
 
 ### 数据质量保证
-- **Oracle标准**: 基于历史观测数据生成的评估基准
-- **多层验证**: 数据格式、逻辑一致性、统计合理性检查
-- **实时更新**: 每周四17:33 UTC自动获取最新数据
-- **版本控制**: 完整的数据变更历史记录
+- **权威数据源**: 基于中国疾控中心《全国急性呼吸道传染病哨点监测情况》
+- **自动化采集**: 使用[cn_cdc_crawl](https://github.com/dailypartita/cn_cdc_crawl)工具自动提取CDC报告数据
+- **标准化处理**: PDF报告→结构化数据的完整处理链
+- **实时同步**: 跟随CDC每周发布节奏自动更新
+- **质量控制**: 多层数据验证确保准确性和一致性
 
 ## 📋 使用指南
 
 ### 🎯 Dashboard使用指南
 
 #### 📈 Forecasts页面操作
-1. **时间导航**: 使用左右方向键或点击日期选择器浏览不同预测轮次
-2. **模型对比**: 点击左侧模型名称切换显示/隐藏，观察4种颜色的预测区间差异  
-3. **区间解读**: 彩色阴影区域表示95%置信区间，区间越窄预测越确定
-4. **历史验证**: 黑色实线显示真实观测值，用于验证模型预测准确性
-5. **趋势分析**: 观察从2025年1月历史数据到9月预测的连续变化
+1. **时间导航**: 使用左右方向键或点击日期选择器浏览不同CDC报告周次的预测
+2. **模型对比**: 点击左侧模型名称切换显示/隐藏，对比不同研究团队的预测差异
+3. **区间解读**: 彩色阴影区域表示95%置信区间，反映新冠病毒阳性率的不确定性
+4. **历史验证**: 黑色实线显示CDC实际发布的监测数据，验证预测准确性
+5. **流行趋势**: 观察门急诊流感样病例中新冠病毒检出率的季节性变化和流行规律
 
 #### 🔥 Evaluation页面分析  
-1. **视图切换**: Table查看排名，Plot观察时间序列表现
-2. **热力图解读**: 深紫色=优秀，黄色=较差，快速识别最佳模型和时间点
-3. **指标筛选**: 切换MAE/WIS等不同评估指标查看模型强弱项
-4. **时间维度**: 按target_end_date分解，了解模型在不同时期的稳定性
+1. **视图切换**: Table查看综合排名，Plot观察各模型在不同CDC报告周次的表现
+2. **热力图解读**: 深紫色=预测误差小，黄色=预测偏差大，快速识别最佳模型
+3. **指标筛选**: 切换MAE/WIS等评估标准，全面了解模型预测能力
+4. **时间维度**: 按CDC报告发布日期分解，评估模型对疫情变化的敏感性
+5. **基准比较**: 以GZNL-test_001为基准，衡量其他模型的相对改进程度
 
 ### 📊 评估指标说明
 - **WIS (加权区间得分)**: 综合考虑预测精度和不确定性的指标，越小越好
@@ -108,33 +111,44 @@ title: "Introduction"
 - **相对指标**: 以GZNL-test_001为基准(1.0)的相对表现
 
 ### 🔍 深度分析建议
-1. **关注最佳模型**: GZNL-test_002在大多数指标上表现优异
-2. **考虑覆盖率平衡**: 完美覆盖率可能意味着预测区间过宽
-3. **评估一致性**: 多个评估轮次的表现稳定性
-4. **实用性权衡**: 在准确性和实际应用便利性之间找平衡
+1. **最佳模型识别**: GZNL-test_002在WIS和覆盖率指标上表现突出
+2. **预测区间解读**: 关注95%置信区间的合理性，过窄可能低估不确定性
+3. **时间序列稳定性**: 通过热力图观察模型在不同时期的一致性表现  
+4. **公共卫生应用**: 结合CDC监测数据趋势，为防控决策提供科学依据
+5. **模型改进方向**: 基于评估结果优化预测算法，提高准确性
 
 ## 🔄 数据更新机制
 
 :::{.callout-important}
 ## ⏰ 自动更新时间表
-- **预测数据**: 每周四17:33 UTC自动更新
-- **评估结果**: 新观测数据可用时立即重新计算
-- **网站内容**: 配置变更时实时部署
+- **CDC数据采集**: 跟随中国疾控中心《全国急性呼吸道传染病哨点监测情况》发布时间
+- **预测提交截止**: 每周三23:59北京时间
+- **集成预测生成**: 每周四09:00北京时间自动生成ensemble预测
+- **Dashboard更新**: 新数据可用时立即更新可视化内容
+- **评估结果**: 观测数据发布后实时重新计算各模型表现
 :::
 
 ## 🤝 参与贡献
 
-### 数据贡献者
-欢迎研究团队提交新的预测模型：
-1. 准备符合Hub标准的模型输出文件
-2. 提供详细的模型元数据描述
-3. 通过GitHub提交或发送邮件联系
+### 预测模型贡献者
+诚邀研究团队、高校、科研院所参与预测建模：
 
-### 技术反馈
-如发现问题或有改进建议：
-- 🐛 [报告Bug](https://github.com/dailypartita/China-COVID-19-Forecast-Dashboard/issues)
-- 💡 [功能建议](https://github.com/dailypartita/China-COVID-19-Forecast-Dashboard/discussions)
-- 📧 [技术咨询](https://github.com/dailypartita/China-COVID-19-Forecast-Hub/issues)
+**参与流程**:
+1. **模型注册**: 在[Forecast Hub](https://github.com/dailypartita/China-COVID-19_Forecast_Hub)提交模型元数据
+2. **数据获取**: 使用[cn_cdc_crawl](https://github.com/dailypartita/cn_cdc_crawl)获取历史监测数据
+3. **预测提交**: 每周三23:59前提交CSV格式预测结果
+4. **结果展示**: 预测结果将在此Dashboard公开展示和评估
+
+**技术要求**: 
+- 基础编程能力(R/Python)
+- 遵循Hubverse标准格式
+- 提供23个分位数的概率预测
+
+### 技术支持与反馈
+- 🐛 [问题报告](https://github.com/dailypartita/China-COVID-19-Forecast-Dashboard/issues)
+- 💬 [参与讨论](https://github.com/dailypartita/China-COVID-19-Forecast-Hub/discussions)
+- 📧 [联系我们](mailto:yang_kaixin@gzlab.ac.cn)
+- 📚 [技术文档](https://github.com/dailypartita/China-COVID-19_Forecast_Hub/blob/main/README.md)
 
 ## 📚 功能导览
 
@@ -146,15 +160,18 @@ title: "Introduction"
 - 💾 **Accessing Hub Data**: 原始数据获取指南
 
 ### 📖 延伸资源
-- 📊 **实时数据**: 来源于中国疾控中心每周急性呼吸道综合症监测点监测
+- 📊 **官方数据源**: [中国疾控中心《全国急性呼吸道传染病哨点监测情况》](https://www.chinacdc.cn/)
+- 🛠 **数据工具**: [cn_cdc_crawl](https://github.com/dailypartita/cn_cdc_crawl) - CDC数据自动采集工具
 - 🔬 **技术框架**: 基于[Hubverse](https://docs.hubverse.io/)国际标准构建
-- 💻 **开源代码**: [Dashboard仓库](https://github.com/dailypartita/China-COVID-19-Forecast-Dashboard) | [数据仓库](https://github.com/dailypartita/China-COVID-19-Forecast-Hub)
-- 📈 **方法文档**: 详细的建模方法和评估指标说明
+- 💻 **开源仓库**: 
+  - [预测中心Hub](https://github.com/dailypartita/China-COVID-19_Forecast_Hub) - 模型注册和数据提交
+  - [Dashboard源码](https://github.com/dailypartita/China-COVID-19-Forecast-Dashboard) - 可视化平台
+- 📈 **技术文档**: 详细的参与指南、数据格式、评估方法说明
 
 ---
 
 ::: {style='text-align: center; margin-top: 40px; padding: 20px; background-color: #f8f9fa; border-radius: 10px;'}
-**🏥 为公共卫生服务 · 🔬 基于科学建模 · 🌏 服务中国健康**
+**🏥 服务公共卫生决策 · 🔬 基于权威监测数据 · 🌏 守护中国健康**
 
-*Built with ❤️ using [Hubverse](https://hubverse.io/) | Last updated: 2025-09-04*
+*基于中国疾控中心权威数据 · 遵循Hubverse国际标准 · 汇聚多方预测智慧*
 :::
