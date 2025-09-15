@@ -9,7 +9,7 @@ targets:
   relative_metrics:
   - ae_median
   - wis
-  baseline: GZNL-test_001
+  baseline: GZNL-Exponential-Smoothing
   disaggregate_by:
   - target_end_date
   - location
@@ -17,7 +17,7 @@ targets:
 eval_sets:
 - eval_set_name: Available evaluations
   round_filters:
-    min: '2025-08-21'
+    min: '2025-09-01'
   task_filters:
     location:
     - "CN"
@@ -27,6 +27,11 @@ eval_sets:
     - -1
     - 0
     - 1
+    - 2
+    - 3
+    - 4
+    - 5
+    - 6
 task_id_text:
   location:
     CN: China
