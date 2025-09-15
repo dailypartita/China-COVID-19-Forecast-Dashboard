@@ -28,21 +28,29 @@
     "initial_interval": "95%",
     "available_as_ofs": {
         "wk inc covid prop ili": [
-            "2025-08-21"
+            "2025-09-01"
         ]
     },
-    "initial_as_of": "2025-08-21",
-    "current_date": "2025-08-21",
+    "initial_as_of": "2025-09-01",
+    "current_date": "2025-09-01",
     "models": [
-        "GZNL-test_001",
-        "GZNL-test_002",
-        "GZNL-test_003",
-        "GZNL-test_004"
+        "GZNL-Exponential-Smoothing",
+        "GZNL-Moving-Regression",
+        "GZNL-Seasonal-Decomposition",
+        "GZNL-Simple-Trend"
     ],
     "initial_checked_models": [
-        "GZNL-test_001",
-        "GZNL-test_002"
+        "GZNL-Exponential-Smoothing",
+        "GZNL-Moving-Regression",
+        "GZNL-Seasonal-Decomposition",
+        "GZNL-Simple-Trend"
     ],
+    "model_urls": {
+        "GZNL-Simple-Trend": "https://github.com/dailypartita/China-COVID-19-Forecast-Hub/blob/main/model-metadata/GZNL-Simple-Trend.yaml",
+        "GZNL-Seasonal-Decomposition": "https://github.com/dailypartita/China-COVID-19-Forecast-Hub/blob/main/model-metadata/GZNL-Seasonal-Decomposition.yaml",
+        "GZNL-Exponential-Smoothing": "https://github.com/dailypartita/China-COVID-19-Forecast-Hub/blob/main/model-metadata/GZNL-Exponential-Smoothing.yaml",
+        "GZNL-Moving-Regression": "https://github.com/dailypartita/China-COVID-19-Forecast-Hub/blob/main/model-metadata/GZNL-Moving-Regression.yaml"
+    },
     "disclaimer": "\u6b64dashboard\u5c55\u793a\u4e2d\u56fdCOVID-19\u9884\u6d4b\u7ed3\u679c\uff0c\u6570\u636e\u6765\u6e90\u4e8e\u4e2d\u56fd\u75be\u63a7\u4e2d\u5fc3\u6bcf\u5468\u6025\u6027\u547c\u5438\u9053\u4f20\u67d3\u75c5\u54e8\u70b9\u76d1\u6d4b\u3002",
     "initial_xaxis_range": null
 }
