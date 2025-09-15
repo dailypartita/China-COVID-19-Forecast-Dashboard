@@ -17,7 +17,7 @@ targets:
 eval_sets:
 - eval_set_name: Available evaluations
   round_filters:
-    min: '2025-09-01'
+    min: '2025-08-21'
   task_filters:
     location:
     - "CN"
@@ -27,11 +27,6 @@ eval_sets:
     - -1
     - 0
     - 1
-    - 2
-    - 3
-    - 4
-    - 5
-    - 6
 task_id_text:
   location:
     CN: China
