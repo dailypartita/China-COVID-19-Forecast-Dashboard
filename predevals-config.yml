@@ -18,7 +18,6 @@ eval_sets:
 - eval_set_name: Available evaluations
   round_filters:
     min: '2025-09-01'
-    max: '2025-09-01'
   task_filters:
     location:
     - "CN"
