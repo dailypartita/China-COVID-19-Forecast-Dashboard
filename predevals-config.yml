@@ -26,7 +26,6 @@ eval_sets:
     - -2
     - -1
     - 0
-    - 1
 task_id_text:
   location:
     CN: China
