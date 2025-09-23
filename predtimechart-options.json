@@ -41,10 +41,10 @@
         "GZNL-SimpleTrend"
     ],
     "initial_checked_models": [
-        "GZNL-Exponential-Smoothing",
-        "GZNL-Moving-Regression",
-        "GZNL-Seasonal-Decomposition",
-        "GZNL-Simple-Trend"
+        "GZNL-ExponentialSmoothing",
+        "GZNL-MovingRegression",
+        "GZNL-SeasonalDecomposition",
+        "GZNL-SimpleTrend"
     ],
     "model_urls": {
         "GZNL-SimpleTrend": "https://github.com/dailypartita/China-COVID-19-Forecast-Hub/blob/main/model-metadata/GZNL-SimpleTrend.yaml",
