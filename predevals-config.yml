@@ -9,7 +9,7 @@ targets:
   relative_metrics:
   - ae_median
   - wis
-  baseline: GZNL-Exponential-Smoothing
+  baseline: GZNL-ExponentialSmoothing
   disaggregate_by:
   - target_end_date
   - location
