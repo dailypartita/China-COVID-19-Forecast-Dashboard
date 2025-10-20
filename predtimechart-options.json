@@ -44,7 +44,6 @@
     ],
     "initial_checked_models": [
         "GZNL-ExponentialSmoothing",
-        "GZNL-MovingRegression",
         "GZNL-SeasonalDecomposition",
         "GZNL-SimpleTrend"
     ],
