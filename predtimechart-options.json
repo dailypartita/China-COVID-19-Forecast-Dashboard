@@ -48,9 +48,9 @@
         "GZNL-SimpleTrend"
     ],
     "model_urls": {
+        "GZNL-ExponentialSmoothing": "https://github.com/dailypartita/China-COVID-19-Forecast-Hub/blob/main/model-metadata/GZNL-ExponentialSmoothing.yaml",
         "GZNL-SeasonalDecomposition": "https://github.com/dailypartita/China-COVID-19-Forecast-Hub/blob/main/model-metadata/GZNL-SeasonalDecomposition.yaml",
         "GZNL-SimpleTrend": "https://github.com/dailypartita/China-COVID-19-Forecast-Hub/blob/main/model-metadata/GZNL-SimpleTrend.yaml",
-        "GZNL-ExponentialSmoothing": "https://github.com/dailypartita/China-COVID-19-Forecast-Hub/blob/main/model-metadata/GZNL-ExponentialSmoothing.yaml",
         "GZNL-LHStestlr": "https://github.com/dailypartita/China-COVID-19-Forecast-Hub/blob/main/model-metadata/GZNL-LHStestlr.yaml"
     },
     "disclaimer": "\u6b64dashboard\u5c55\u793a\u4e2d\u56fdCOVID-19\u9884\u6d4b\u7ed3\u679c\uff0c\u6570\u636e\u6765\u6e90\u4e8e\u4e2d\u56fd\u75be\u63a7\u4e2d\u5fc3\u6bcf\u5468\u6025\u6027\u547c\u5438\u9053\u4f20\u67d3\u75c5\u54e8\u70b9\u76d1\u6d4b\u3002",
