@@ -16,7 +16,7 @@ targets:
 eval_sets:
 - eval_set_name: Last 6 weeks
   round_filters:
-    min: '2025-10-06'
+    min: '2024-11-11'
   task_filters:
     location:
     - "CN"
