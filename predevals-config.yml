@@ -14,9 +14,9 @@ targets:
   - location
   - horizon
 eval_sets:
-- eval_set_name: Last 4 weeks
+- eval_set_name: Last 6 weeks
   round_filters:
-    min: '2025-10-27'
+    min: '2025-10-06'
   task_filters:
     location:
     - "CN"
