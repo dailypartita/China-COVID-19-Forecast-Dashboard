@@ -5,11 +5,7 @@ target_date_col_name: 'target_end_date'
 horizon_col_name: 'horizon'
 initial_checked_models: ["GZNL-ExponentialSmoothing", "GZNL-SeasonalDecomposition", "GZNL-SimpleTrend"]
 disclaimer: "此dashboard展示中国COVID-19预测结果，数据来源于中国疾控中心每周急性呼吸道传染病哨点监测。"
-output_type_ids:
-  - 0.05
-  - 0.5
-  - 0.95
 target_data_file_name: 'time-series.csv'
 task_id_text:
-  location: 
+  location:
     "CN": "China"
