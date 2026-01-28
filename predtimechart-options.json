@@ -48,12 +48,12 @@
         "GZNL-ExponentialSmoothing",
         "GZNL-SeasonalDecomposition",
         "GZNL-SimpleTrend",
+        "MUST-SEIRS",
         "XMU_CTModelling-FNN",
         "XMU_CTModelling-GRU",
         "XMU_CTModelling-LSTM",
         "XMU_CTModelling-TCN",
-        "XMU_CTModelling-XGBoost",
-        "MUST-SEIRS"
+        "XMU_CTModelling-XGBoost"
     ],
     "initial_checked_models": [
         "GZNL-ExponentialSmoothing",
@@ -63,7 +63,8 @@
         "XMU_CTModelling-LSTM",
         "XMU_CTModelling-XGBoost",
         "XMU_CTModelling-GRU",
-        "XMU_CTModelling-TCN"
+        "XMU_CTModelling-TCN",
+        "MUST-SEIRS"
     ],
     "model_urls": {
         "XMU_CTModelling-LSTM": "https://github.com/dailypartita/China-COVID-19-Forecast-Hub/blob/main/model-metadata/XMU_CTModelling-LSTM.yaml",
