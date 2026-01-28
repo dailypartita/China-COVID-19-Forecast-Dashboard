@@ -1,4 +1,4 @@
-# Updated: 2026-01-28 with fixed data (removed duplicates, updated to 2026-01-18)
+# Updated: 2026-01-28 13:00 - removed ALL duplicate files (GZNL, XMU, MUST)
 schema_version: https://raw.githubusercontent.com/hubverse-org/hubPredEvalsData/main/inst/schema/v1.0.1/config_schema.json
 rounds_idx: 0
 targets:
