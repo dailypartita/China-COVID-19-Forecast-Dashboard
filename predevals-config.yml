@@ -18,10 +18,10 @@ targets:
 eval_sets:
 - eval_set_name: All available weeks
   round_filters:
-    min: '2025-09-01'
+    min: 2025-09-01
   task_filters:
     location:
-    - "CN"
+    - CN
     horizon:
     - 0
     - -1

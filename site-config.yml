@@ -1,7 +1,7 @@
 ---
-hub: "dailypartita/China-COVID-19-Forecast-Hub"
-title: "China COVID-19 Forecast Hub Dashboard"
+hub: dailypartita/China-COVID-19-Forecast-Hub
+title: China COVID-19 Forecast Hub Dashboard
 pages:
-  - "about.md"
-  - "data.qmd"
+  - about.md
+  - data.qmd
 
