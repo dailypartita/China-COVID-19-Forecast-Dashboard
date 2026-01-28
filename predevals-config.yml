@@ -1,4 +1,5 @@
 schema_version: https://raw.githubusercontent.com/hubverse-org/hubPredEvalsData/main/inst/schema/v1.0.1/config_schema.json
+rounds_idx: reference_date
 targets:
 - target_id: wk inc covid prop ili
   metrics:
