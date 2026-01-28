@@ -1,0 +1,4 @@
+"model_id","ae_median_scaled_relative_skill","ae_median","wis_scaled_relative_skill","wis","interval_coverage_95","n"
+"GZNL-ExponentialSmoothing",1,0,1,0.0211671014492754,1,88
+"GZNL-SeasonalDecomposition",1,0,1.00254359718732,0.0212209420289855,1,66
+"GZNL-SimpleTrend",1,0,0.998322526753986,0.0211315942028985,1,88
