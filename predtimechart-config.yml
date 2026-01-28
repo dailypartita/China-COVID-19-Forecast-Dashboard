@@ -4,7 +4,6 @@ rounds_idx: 0
 reference_date_col_name: 'reference_date'
 target_date_col_name: 'target_end_date'
 horizon_col_name: 'horizon'
-initial_as_of: '2026-01-18'
 initial_checked_models: ["GZNL-ExponentialSmoothing", "GZNL-SeasonalDecomposition", "GZNL-SimpleTrend", "XMU_CTModelling-FNN", "XMU_CTModelling-LSTM", "XMU_CTModelling-XGBoost","XMU_CTModelling-GRU", "XMU_CTModelling-TCN"]
 disclaimer: "此dashboard展示中国COVID-19预测结果，数据来源于中国疾控中心每周急性呼吸道传染病哨点监测。"
 target_data_file_name: 'time-series.csv'
