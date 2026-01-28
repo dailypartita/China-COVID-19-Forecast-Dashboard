@@ -48,19 +48,18 @@
         "GZNL-ExponentialSmoothing",
         "GZNL-SeasonalDecomposition",
         "GZNL-SimpleTrend",
-        "MUST-SEIRS",
         "XMU_CTModelling-FNN",
         "XMU_CTModelling-GRU",
         "XMU_CTModelling-LSTM",
         "XMU_CTModelling-TCN",
-        "XMU_CTModelling-XGBoost"
+        "XMU_CTModelling-XGBoost",
+        "MUST-SEIRS"
     ],
     "initial_checked_models": [
         "GZNL-ExponentialSmoothing",
         "GZNL-SeasonalDecomposition",
         "GZNL-SimpleTrend",
         "XMU_CTModelling-FNN",
-        "MUST-SEIRS",
         "XMU_CTModelling-LSTM",
         "XMU_CTModelling-XGBoost",
         "XMU_CTModelling-GRU",
