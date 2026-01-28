@@ -37,11 +37,15 @@
             "2025-11-03",
             "2025-11-10",
             "2025-11-17",
-            "2025-11-24"
+            "2025-11-24",
+            "2025-12-01",
+            "2025-12-08",
+            "2025-12-15",
+            "2025-12-22"
         ]
     },
-    "initial_as_of": "2025-11-24",
-    "current_date": "2025-11-24",
+    "initial_as_of": "2025-12-22",
+    "current_date": "2025-12-22",
     "models": [
         "GZNL-ExponentialSmoothing",
         "GZNL-SeasonalDecomposition",
