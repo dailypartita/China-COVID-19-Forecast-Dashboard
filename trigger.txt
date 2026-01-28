@@ -1,1 +1,1 @@
-force rebuild with updated oracle-output.csv
+Trigger rebuild: 2026-01-28 with updated Hub data (latest: 2026-01-18) and new GZNL forecasts
