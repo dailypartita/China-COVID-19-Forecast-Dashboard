@@ -49,20 +49,17 @@
     "initial_as_of": "2026-01-19",
     "current_date": "2026-01-19",
     "models": [
-        "GZNL-ExponentialSmoothing",
-        "GZNL-SeasonalDecomposition",
-        "GZNL-SimpleTrend",
         "MUST-SEIRS",
         "XMU_CTModelling-FNN",
         "XMU_CTModelling-GRU",
         "XMU_CTModelling-LSTM",
         "XMU_CTModelling-TCN",
-        "XMU_CTModelling-XGBoost"
-    ],
-    "initial_checked_models": [
+        "XMU_CTModelling-XGBoost",
         "GZNL-ExponentialSmoothing",
         "GZNL-SeasonalDecomposition",
-        "GZNL-SimpleTrend",
+        "GZNL-SimpleTrend"
+    ],
+    "initial_checked_models": [
         "XMU_CTModelling-FNN",
         "XMU_CTModelling-LSTM",
         "XMU_CTModelling-XGBoost",
