@@ -5,9 +5,9 @@ reference_date_col_name: reference_date
 target_date_col_name: target_end_date
 horizon_col_name: horizon
 initial_checked_models:
-  - GZNL-ExponentialSmoothing
-  - GZNL-SeasonalDecomposition
-  - GZNL-SimpleTrend
+  # - GZNL-ExponentialSmoothing
+  # - GZNL-SeasonalDecomposition
+  # - GZNL-SimpleTrend
   - XMU_CTModelling-FNN
   - XMU_CTModelling-LSTM
   - XMU_CTModelling-XGBoost
