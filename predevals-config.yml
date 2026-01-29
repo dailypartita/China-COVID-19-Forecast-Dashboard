@@ -27,7 +27,7 @@ eval_sets:
     - 1
     - 2
     - 3
-    reference_date:
+    target_end_date:
     - 2025-10-13
     - 2025-10-20
     - 2025-10-27
