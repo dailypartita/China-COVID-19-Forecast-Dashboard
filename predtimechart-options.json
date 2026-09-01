@@ -58,11 +58,12 @@
             "2026-04-06",
             "2026-04-13",
             "2026-04-20",
-            "2026-04-27"
+            "2026-04-27",
+            "2026-08-31"
         ]
     },
-    "initial_as_of": "2026-04-27",
-    "current_date": "2026-04-27",
+    "initial_as_of": "2026-08-31",
+    "current_date": "2026-08-31",
     "models": [
         "GZNL-ExponentialSmoothing",
         "GZNL-SeasonalDecomposition",
