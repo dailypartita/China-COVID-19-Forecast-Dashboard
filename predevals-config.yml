@@ -1,4 +1,4 @@
-# Updated: 2026-01-28 13:00 - removed ALL duplicate files (GZNL, XMU, MUST)
+# Updated: 2026-09-01 — add eval sets with broad model coverage
 schema_version: https://raw.githubusercontent.com/hubverse-org/hubPredEvalsData/main/inst/schema/v1.0.1/config_schema.json
 rounds_idx: 0
 targets:
@@ -39,6 +39,69 @@ eval_sets:
     - 2025-12-08
     - 2025-12-15
     - 2025-12-22
+- eval_set_name: 2025-11-17 all teams (9 models)
+  task_filters:
+    location:
+    - CN
+    horizon:
+    - 0
+    - 1
+    - 2
+    - 3
+    reference_date:
+    - 2025-11-17
+    target_end_date:
+    - 2025-11-17
+    - 2025-11-24
+    - 2025-12-01
+    - 2025-12-08
+- eval_set_name: 2025 Dec multi-model (8 models)
+  task_filters:
+    location:
+    - CN
+    horizon:
+    - 0
+    - 1
+    - 2
+    - 3
+    reference_date:
+    - 2025-12-01
+    - 2025-12-08
+    - 2025-12-15
+    - 2025-12-22
+    target_end_date:
+    - 2025-12-01
+    - 2025-12-08
+    - 2025-12-15
+    - 2025-12-22
+- eval_set_name: 2026 Q1 multi-model (8 models)
+  task_filters:
+    location:
+    - CN
+    horizon:
+    - 0
+    - 1
+    - 2
+    - 3
+    reference_date:
+    - 2026-01-26
+    - 2026-02-02
+    - 2026-02-09
+    - 2026-02-16
+    - 2026-03-02
+    - 2026-03-09
+    - 2026-03-16
+    - 2026-03-23
+    target_end_date:
+    - 2026-01-26
+    - 2026-02-02
+    - 2026-02-09
+    - 2026-02-16
+    - 2026-02-23
+    - 2026-03-02
+    - 2026-03-09
+    - 2026-03-16
+    - 2026-03-23
 task_id_text:
   location:
     CN: China
