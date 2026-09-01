@@ -1,13 +1,11 @@
 ---
-# Updated: 2026-09-01 — trigger data rebuild after Hub sync (2022-12-05 .. 2026-08-17)
+# Updated: 2026-09-01 — GZNL NextWave only; remove legacy placeholder models
 rounds_idx: 0
 reference_date_col_name: reference_date
 target_date_col_name: target_end_date
 horizon_col_name: horizon
 initial_checked_models:
-  - GZNL-ExponentialSmoothing
-  - GZNL-SeasonalDecomposition
-  - GZNL-SimpleTrend
+  - GZNL-NextWave
   - XMU_CTModelling-FNN
   - XMU_CTModelling-LSTM
   - XMU_CTModelling-XGBoost

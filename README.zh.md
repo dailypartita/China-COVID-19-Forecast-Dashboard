@@ -24,7 +24,7 @@
 
 - **评估指标：** WIS、AE median、95% 区间覆盖率
 - **对比方式：** Table 综合排名与 Plot 热力图双视图
-- **相对评估：** 以 `GZNL-ExponentialSmoothing` 为基准模型的相对表现分析
+- **相对评估：** 以 `MUST-SEIRS` 为基准模型的相对表现分析
 
 ### 数据获取
 
@@ -32,11 +32,11 @@
 
 ## 参与模型
 
-当前活跃模型（9 个）：
+当前活跃模型（7 个）：
 
 | 团队 | 模型 |
 |------|------|
-| GZNL | ExponentialSmoothing, SeasonalDecomposition, SimpleTrend |
+| GZNL | NextWave（新冠阳性率周期演变 / 下一波情景预测） |
 | XMU_CTModelling | FNN, LSTM, XGBoost, GRU, TCN |
 | MUST | SEIRS |
 

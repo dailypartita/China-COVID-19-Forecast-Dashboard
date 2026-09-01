@@ -1,4 +1,4 @@
-# Updated: 2026-09-01 — add eval sets with broad model coverage
+# Updated: 2026-09-01 — baseline MUST-SEIRS; GZNL legacy models removed from Hub
 schema_version: https://raw.githubusercontent.com/hubverse-org/hubPredEvalsData/main/inst/schema/v1.0.1/config_schema.json
 rounds_idx: 0
 targets:
@@ -10,7 +10,7 @@ targets:
   relative_metrics:
   - ae_median
   - wis
-  baseline: GZNL-ExponentialSmoothing
+  baseline: MUST-SEIRS
   disaggregate_by:
   - target_end_date
   - location

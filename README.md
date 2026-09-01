@@ -24,7 +24,7 @@ Interactive forecasting and evaluation platform built on the [Hubverse](https://
 
 - **Metrics:** WIS, AE median, 95% interval coverage
 - **Views:** Table rankings and Plot heatmaps
-- **Baseline:** Relative performance vs. `GZNL-ExponentialSmoothing`
+- **Baseline:** Relative performance vs. `MUST-SEIRS`
 
 ### Data Access
 
@@ -34,7 +34,7 @@ Raw forecasts, target data, and Hub configuration are available via the [data pa
 
 | Team | Models |
 |------|--------|
-| GZNL | ExponentialSmoothing, SeasonalDecomposition, SimpleTrend |
+| GZNL | NextWave |
 | XMU_CTModelling | FNN, LSTM, XGBoost, GRU, TCN |
 | MUST | SEIRS |
 
