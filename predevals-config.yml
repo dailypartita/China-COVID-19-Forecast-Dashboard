@@ -7,10 +7,6 @@ targets:
   - ae_median
   - wis
   - interval_coverage_95
-  relative_metrics:
-  - ae_median
-  - wis
-  baseline: MUST-SEIRS
   disaggregate_by:
   - target_end_date
   - location

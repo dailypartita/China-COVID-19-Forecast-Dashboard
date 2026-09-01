@@ -22,9 +22,7 @@ Interactive forecasting and evaluation platform built on the [Hubverse](https://
 
 ### Evaluation
 
-- **Metrics:** WIS, AE median, 95% interval coverage
-- **Views:** Table rankings and Plot heatmaps
-- **Baseline:** Relative performance vs. `MUST-SEIRS`
+- **Metrics:** WIS, AE median, 95% interval coverage (absolute scores)
 
 ### Data Access
 
