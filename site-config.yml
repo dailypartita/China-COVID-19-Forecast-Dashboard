@@ -1,6 +1,12 @@
 ---
 hub: dailypartita/China-COVID-19-Forecast-Hub
-title: China COVID-19 Forecast Hub Dashboard
+title: 中国 COVID-19 预测中心
+html:
+  css: home.css
 pages:
-  - about.md
-  - data.qmd
+  - title: 关于团队
+    icon: people-fill
+    href: about.md
+  - title: 数据获取
+    icon: database-fill
+    href: data.qmd
