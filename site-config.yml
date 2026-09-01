@@ -4,5 +4,4 @@ title: China COVID-19 Forecast Hub
 html:
   css: home.css
 pages:
-  - about.md
   - data.qmd
