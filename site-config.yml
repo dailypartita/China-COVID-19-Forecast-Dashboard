@@ -4,9 +4,5 @@ title: 中国 COVID-19 预测中心
 html:
   css: home.css
 pages:
-  - title: 关于团队
-    icon: people-fill
-    href: about.md
-  - title: 数据获取
-    icon: database-fill
-    href: data.qmd
+  - about.md
+  - data.qmd

@@ -1,5 +1,5 @@
 ---
-title: "About the team"
+title: "关于团队"
 ---
 
 ## Introduction

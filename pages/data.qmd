@@ -1,5 +1,5 @@
 ---
-title: "Accessing Hub Data"
+title: "数据获取"
 ---
 
 ## Accessing hub data from GitHub
