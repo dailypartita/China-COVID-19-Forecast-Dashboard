@@ -5,66 +5,14 @@ title: "Introduction"
 ::: {.hero-section}
 ## 中国 COVID-19 预测中心
 
-基于 CDC 哨点监测数据的多模型概率预测与评估平台
-
-追踪门急诊 ILI 病例中 SARS-CoV-2 阳性率趋势，遵循 [Hubverse](https://hubverse.io/) 国际标准
+门急诊 ILI 病例 SARS-CoV-2 阳性率 · 多模型预测与评估
 
 ::: {.hero-actions}
-[查看预测](forecast.html){.btn .btn-primary .btn-lg role="button"}
-[模型评估](eval.html){.btn .btn-outline-primary .btn-lg role="button"}
-:::
-:::
-
-::: {.feature-cards}
-::: {.row}
-::: {.col-md-4}
-::: {.feature-card}
-### 预测可视化
-
-时间序列展示与 95% 置信区间，支持多模型对比及 CDC 观测数据叠加。
-
-[进入 Forecasts →](forecast.html)
-:::
-:::
-::: {.col-md-4}
-::: {.feature-card}
-### 模型评估
-
-WIS、MAE、区间覆盖率等多指标评估，Table 与 Plot 双视图对比。
-
-[进入 Evaluation →](eval.html)
-:::
-:::
-::: {.col-md-4}
-::: {.feature-card}
-### 数据与框架
-
-CDC 每周哨点报告，23 分位数概率预测，GitHub Actions 自动更新。
-
-[获取数据 →](data.html)
-:::
-:::
-:::
+[查看预测](forecast.html){.btn .btn-primary role="button"}
+[模型评估](eval.html){.btn .btn-outline-primary role="button"}
 :::
 
-当前共有 9 个活跃模型参与预测。最新 WIS / MAE 排名请查看 [Evaluation 页面](eval.html)。
-
-:::{.callout-important appearance="simple"}
-### 数据更新
-
-- CDC 每周发布《全国急性呼吸道传染病哨点监测情况》
-- 预测提交截止：每周三 23:59（北京时间）
-- Dashboard 在新数据可用时自动更新
+::: {.hero-meta}
+数据来源 [CDC 哨点监测](https://www.chinacdc.cn/jksj/jksj04_14275/) · 遵循 [Hubverse](https://hubverse.io/) 标准
 :::
-
-:::{.callout-note appearance="simple"}
-### 参与建模
-
-欢迎研究团队提交预测模型。详情请参阅 [Forecast Hub](https://github.com/dailypartita/China-COVID-19-Forecast-Hub)。
-:::
-
-详细使用说明、评估指标定义与贡献流程，请参阅 [项目 README](https://github.com/dailypartita/China-COVID-19-Forecast-Dashboard/blob/main/README.md)。
-
-::: {.page-footer}
-服务公共卫生决策 · 基于 CDC 权威监测数据 · Hubverse 标准
 :::
