@@ -7,7 +7,8 @@ format:
     include-after-body: home-after.html
 ---
 
-::: {.hero-section}
+::: {.home-page}
+::: {.hero-panel}
 ```{=html}
 <h2 class="hero-title" id="hero-title">China COVID-19 Forecast Hub</h2>
 <div class="lang-switch">
@@ -21,11 +22,10 @@ format:
 ```{=html}
 <p class="hero-subtitle">SARS-CoV-2 positivity rate among ILI cases · multi-model forecasting &amp; evaluation</p>
 <div class="hero-actions">
-  <a href="forecast.html" class="btn btn-primary" role="button">View Forecasts</a>
-  <a href="eval.html" class="btn btn-outline-primary" role="button">Model Evaluation</a>
+  <a href="forecast.html" class="btn btn-primary btn-lg" role="button">View Forecasts</a>
+  <a href="eval.html" class="btn btn-outline-primary btn-lg" role="button">Model Evaluation</a>
 </div>
 <p class="hero-meta">Data from <a href="https://www.chinacdc.cn/jksj/jksj04_14275/">CDC sentinel surveillance</a> · <a href="https://hubverse.io/">Hubverse</a> standard</p>
-<p class="hero-credits">Forecasts provided by Xiamen University CTModelling team, Macau University of Science and Technology (MUST), and Guangzhou National Laboratory (GZNL).<br>Hubverse-CN integrated and maintained by the Bioinformatics and AI Research Department, Guangzhou National Laboratory.</p>
 ```
 :::
 
@@ -33,12 +33,34 @@ format:
 ```{=html}
 <p class="hero-subtitle">门急诊 ILI 病例 SARS-CoV-2 阳性率 · 多模型预测与评估</p>
 <div class="hero-actions">
-  <a href="forecast.html" class="btn btn-primary" role="button">查看预测</a>
-  <a href="eval.html" class="btn btn-outline-primary" role="button">模型评估</a>
+  <a href="forecast.html" class="btn btn-primary btn-lg" role="button">查看预测</a>
+  <a href="eval.html" class="btn btn-outline-primary btn-lg" role="button">模型评估</a>
 </div>
 <p class="hero-meta">数据来源 <a href="https://www.chinacdc.cn/jksj/jksj04_14275/">CDC 哨点监测</a> · 遵循 <a href="https://hubverse.io/">Hubverse</a> 标准</p>
-<p class="hero-credits">预测结果由厦门大学 CTModelling team、澳门科技大学（MUST）、广州国家实验室（GZNL）提供。<br>Hubverse-CN 由广州国家实验室-生物信息与人工智能研究部整合维护。</p>
 ```
+:::
+
+:::
+
+::: {.hero-credits-box}
+::: {.lang-body .lang-en}
+```{=html}
+<p class="hero-credits-label">Contributors</p>
+<p class="hero-credits">Forecasts provided by Xiamen University CTModelling team, Macau University of Science and Technology (MUST), and Guangzhou National Laboratory (GZNL).</p>
+<p class="hero-credits-label">Platform</p>
+<p class="hero-credits">Hubverse-CN integrated and maintained by the Bioinformatics and AI Research Department, Guangzhou National Laboratory.</p>
+```
+:::
+
+::: {.lang-body .lang-zh .hidden}
+```{=html}
+<p class="hero-credits-label">预测贡献</p>
+<p class="hero-credits">预测结果由厦门大学 CTModelling team、澳门科技大学（MUST）、广州国家实验室（GZNL）提供。</p>
+<p class="hero-credits-label">平台维护</p>
+<p class="hero-credits">Hubverse-CN 由广州国家实验室-生物信息与人工智能研究部整合维护。</p>
+```
+:::
+
 :::
 
 :::
