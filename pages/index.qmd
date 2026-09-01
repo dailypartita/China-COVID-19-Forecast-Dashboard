@@ -3,42 +3,40 @@ title: "Introduction"
 title-block: false
 format:
   html:
-    include-after-body: home.js
+    include-in-header: home-header.html
+    include-after-body: home-after.html
 ---
 
 ::: {.hero-section}
+```{=html}
 <h2 class="hero-title" id="hero-title">China COVID-19 Forecast Hub</h2>
-
-::: {.lang-switch}
-<button type="button" class="lang-btn active" data-lang="en">English</button>
-<span class="lang-sep" aria-hidden="true">·</span>
-<button type="button" class="lang-btn" data-lang="zh">中文</button>
-:::
+<div class="lang-switch">
+  <button type="button" class="lang-btn active" data-lang="en">English</button>
+  <span class="lang-sep" aria-hidden="true">·</span>
+  <button type="button" class="lang-btn" data-lang="zh">中文</button>
+</div>
+```
 
 ::: {.lang-body .lang-en}
-<p class="hero-subtitle">SARS-CoV-2 positivity rate among ILI cases · multi-model forecasting & evaluation</p>
-
-::: {.hero-actions}
-[View Forecasts](forecast.html){.btn .btn-primary role="button"}
-[Model Evaluation](eval.html){.btn .btn-outline-primary role="button"}
-:::
-
-::: {.hero-meta}
-Data from [CDC sentinel surveillance](https://www.chinacdc.cn/jksj/jksj04_14275/) · [Hubverse](https://hubverse.io/) standard
-:::
+```{=html}
+<p class="hero-subtitle">SARS-CoV-2 positivity rate among ILI cases · multi-model forecasting &amp; evaluation</p>
+<div class="hero-actions">
+  <a href="forecast.html" class="btn btn-primary" role="button">View Forecasts</a>
+  <a href="eval.html" class="btn btn-outline-primary" role="button">Model Evaluation</a>
+</div>
+<p class="hero-meta">Data from <a href="https://www.chinacdc.cn/jksj/jksj04_14275/">CDC sentinel surveillance</a> · <a href="https://hubverse.io/">Hubverse</a> standard</p>
+```
 :::
 
 ::: {.lang-body .lang-zh .hidden}
+```{=html}
 <p class="hero-subtitle">门急诊 ILI 病例 SARS-CoV-2 阳性率 · 多模型预测与评估</p>
-
-::: {.hero-actions}
-[查看预测](forecast.html){.btn .btn-primary role="button"}
-[模型评估](eval.html){.btn .btn-outline-primary role="button"}
-:::
-
-::: {.hero-meta}
-数据来源 [CDC 哨点监测](https://www.chinacdc.cn/jksj/jksj04_14275/) · 遵循 [Hubverse](https://hubverse.io/) 标准
-:::
+<div class="hero-actions">
+  <a href="forecast.html" class="btn btn-primary" role="button">查看预测</a>
+  <a href="eval.html" class="btn btn-outline-primary" role="button">模型评估</a>
+</div>
+<p class="hero-meta">数据来源 <a href="https://www.chinacdc.cn/jksj/jksj04_14275/">CDC 哨点监测</a> · 遵循 <a href="https://hubverse.io/">Hubverse</a> 标准</p>
+```
 :::
 
 :::
