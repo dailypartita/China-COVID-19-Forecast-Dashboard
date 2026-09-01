@@ -25,6 +25,7 @@ format:
   <a href="eval.html" class="btn btn-outline-primary" role="button">Model Evaluation</a>
 </div>
 <p class="hero-meta">Data from <a href="https://www.chinacdc.cn/jksj/jksj04_14275/">CDC sentinel surveillance</a> · <a href="https://hubverse.io/">Hubverse</a> standard</p>
+<p class="hero-credits">Forecasts provided by Xiamen University CTModelling team, Macau University of Science and Technology (MUST), and Guangzhou National Laboratory (GZNL).<br>Hubverse-CN integrated and maintained by the Bioinformatics and AI Research Department, Guangzhou National Laboratory.</p>
 ```
 :::
 
@@ -36,6 +37,7 @@ format:
   <a href="eval.html" class="btn btn-outline-primary" role="button">模型评估</a>
 </div>
 <p class="hero-meta">数据来源 <a href="https://www.chinacdc.cn/jksj/jksj04_14275/">CDC 哨点监测</a> · 遵循 <a href="https://hubverse.io/">Hubverse</a> 标准</p>
+<p class="hero-credits">预测结果由厦门大学 CTModelling team、澳门科技大学（MUST）、广州国家实验室（GZNL）提供。<br>Hubverse-CN 由广州国家实验室-生物信息与人工智能研究部整合维护。</p>
 ```
 :::
 
