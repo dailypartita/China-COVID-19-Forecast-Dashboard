@@ -1,5 +1,5 @@
 ---
-# Updated: 2026-09-01 with latest Hub data (2022-12-05 .. 2026-08-17)
+# Updated: 2026-09-01 — trigger data rebuild after Hub sync (2022-12-05 .. 2026-08-17)
 rounds_idx: 0
 reference_date_col_name: reference_date
 target_date_col_name: target_end_date
