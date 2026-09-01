@@ -1,44 +1,118 @@
+/* Hide Quarto page title on homepage */
+body:has(.hero-section) #title-block-header,
+body:has(.hero-section) .quarto-title-block {
+  display: none;
+}
+
+/* Vertically center hero content */
+body:has(.hero-section) main.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: calc(100vh - 56px - 80px);
+}
+
+body:has(.hero-section) .content {
+  padding-top: 0;
+}
+
 .hero-section {
   text-align: center;
-  padding: 4rem 1.5rem 3rem;
-  margin: -1rem -1rem 0;
+  padding: 2rem 1.5rem;
+  margin: 0 auto;
+  max-width: 640px;
 }
 
-.hero-section h2 {
-  font-size: 1.75rem;
+.hero-title {
+  font-size: 2rem;
   font-weight: 600;
   color: #003a80;
-  margin-bottom: 0.5rem;
-  letter-spacing: -0.02em;
+  margin: 0 0 0.75rem;
+  letter-spacing: -0.025em;
+  line-height: 1.25;
 }
 
-.hero-section > p {
+.lang-switch {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.lang-btn {
+  background: none;
+  border: none;
+  padding: 0.15rem 0.35rem;
+  font-size: 0.8125rem;
+  color: #aaa;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: color 0.15s ease, background 0.15s ease;
+}
+
+.lang-btn:hover {
+  color: #003a80;
+}
+
+.lang-btn.active {
+  color: #003a80;
+  font-weight: 600;
+  background: rgba(0, 58, 128, 0.06);
+}
+
+.lang-sep {
+  color: #ddd;
+  font-size: 0.75rem;
+  user-select: none;
+}
+
+.hero-subtitle {
   color: #666;
-  font-size: 1rem;
-  margin: 0 auto 1.75rem;
-  line-height: 1.5;
+  font-size: 1.05rem;
+  margin: 0 auto 2rem;
+  line-height: 1.6;
+  max-width: 480px;
+}
+
+.lang-body.hidden {
+  display: none;
 }
 
 .hero-actions {
   display: flex;
-  gap: 10px;
+  gap: 12px;
   justify-content: center;
   flex-wrap: wrap;
-  margin-bottom: 2rem;
+  margin-bottom: 2.5rem;
+}
+
+.hero-actions .btn {
+  min-width: 140px;
+  padding: 0.5rem 1.25rem;
+  font-size: 0.9375rem;
+  border-radius: 6px;
 }
 
 .hero-meta {
-  color: #999;
-  font-size: 0.85rem;
+  color: #aaa;
+  font-size: 0.8125rem;
   line-height: 1.5;
 }
 
 .hero-meta a {
-  color: #666;
+  color: #888;
   text-decoration: none;
+  transition: color 0.15s ease;
 }
 
 .hero-meta a:hover {
   color: #003a80;
-  text-decoration: underline;
+}
+
+/* Tidy homepage footer */
+body:has(.hero-section) .nav-footer {
+  border-top: none;
+  padding-top: 0;
+  opacity: 0.7;
 }

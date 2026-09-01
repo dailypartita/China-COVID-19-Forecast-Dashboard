@@ -1,11 +1,35 @@
 ---
 title: "Introduction"
+title-block: false
+format:
+  html:
+    include-after-body: home.js
 ---
 
 ::: {.hero-section}
-## 中国 COVID-19 预测中心
+<h2 class="hero-title" id="hero-title">China COVID-19 Forecast Hub</h2>
 
-门急诊 ILI 病例 SARS-CoV-2 阳性率 · 多模型预测与评估
+::: {.lang-switch}
+<button type="button" class="lang-btn active" data-lang="en">English</button>
+<span class="lang-sep" aria-hidden="true">·</span>
+<button type="button" class="lang-btn" data-lang="zh">中文</button>
+:::
+
+::: {.lang-body .lang-en}
+<p class="hero-subtitle">SARS-CoV-2 positivity rate among ILI cases · multi-model forecasting & evaluation</p>
+
+::: {.hero-actions}
+[View Forecasts](forecast.html){.btn .btn-primary role="button"}
+[Model Evaluation](eval.html){.btn .btn-outline-primary role="button"}
+:::
+
+::: {.hero-meta}
+Data from [CDC sentinel surveillance](https://www.chinacdc.cn/jksj/jksj04_14275/) · [Hubverse](https://hubverse.io/) standard
+:::
+:::
+
+::: {.lang-body .lang-zh .hidden}
+<p class="hero-subtitle">门急诊 ILI 病例 SARS-CoV-2 阳性率 · 多模型预测与评估</p>
 
 ::: {.hero-actions}
 [查看预测](forecast.html){.btn .btn-primary role="button"}
@@ -15,4 +39,6 @@ title: "Introduction"
 ::: {.hero-meta}
 数据来源 [CDC 哨点监测](https://www.chinacdc.cn/jksj/jksj04_14275/) · 遵循 [Hubverse](https://hubverse.io/) 标准
 :::
+:::
+
 :::

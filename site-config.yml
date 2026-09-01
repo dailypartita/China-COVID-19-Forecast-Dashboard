@@ -1,6 +1,6 @@
 ---
 hub: dailypartita/China-COVID-19-Forecast-Hub
-title: 中国 COVID-19 预测中心
+title: China COVID-19 Forecast Hub
 html:
   css: home.css
 pages:
