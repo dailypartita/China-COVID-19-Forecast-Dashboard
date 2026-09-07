@@ -45,9 +45,11 @@ See the [Evaluation page](https://dailypartita.github.io/China-COVID-19-Forecast
 |------|----------|
 | CDC sentinel report | Weekly (typically Wednesday) |
 | Forecast submission deadline | Wednesday 23:59 Beijing time |
-| Dashboard data refresh | Thursday 17:33 UTC (automated) |
+| Dashboard data refresh | Thursday 17:33 UTC (automated, `regenerate=true`) |
 
 Target data from [China CDC sentinel surveillance](https://www.chinacdc.cn/jksj/jksj04_14275/). Extraction tool: [cn_cdc_crawl](https://github.com/dailypartita/cn_cdc_crawl).
+
+**Manual target refresh** (Hub `time-series.csv` updated but the chart still ends on an older week): run Actions → **Rebuild Data** with `regenerate=true` and `data=target` (or `both`). Without regenerate, predtimechart skips existing as-of JSON files and new observation weeks will not appear.
 
 ## Architecture
 

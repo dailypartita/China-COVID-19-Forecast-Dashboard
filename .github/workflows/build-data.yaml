@@ -12,12 +12,12 @@ on:
   workflow_dispatch:
     inputs:
       regenerate:
-        description: "(Forecast) Regenerate previously-recorded model output data?"
+        description: "Force-rewrite existing forecast/target JSON (needed after Hub time-series updates an already-published as-of week)"
         type: boolean
         required: false
         default: false
       data:
-        description: "(Forecast) Which forecast page data should be built?"
+        description: "Which forecast page data should be built?"
         type: choice
         options:
           - 'target'
@@ -42,7 +42,8 @@ jobs:
       name: '${{ github.event.repository.name }}'
       slug: '${{ github.event.repository.owner.login }}'
       email: '${{ github.event.repository.owner.id }}+${{ github.event.repository.owner.login }}@users.noreply.github.com'
-      regenerate: ${{ inputs.regenerate || false }}
+      # Weekly cron must regenerate: predtimechart skips existing as-of target files when false.
+      regenerate: ${{ github.event_name == 'schedule' || inputs.regenerate || false }}
       build: ${{ inputs.data || 'both' }}
       publish: ${{ inputs.publish || github.event_name == 'schedule' || github.event_name == 'push' }}
     secrets:
