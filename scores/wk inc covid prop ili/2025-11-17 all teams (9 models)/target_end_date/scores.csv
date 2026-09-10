@@ -1,4 +1,5 @@
 "model_id","target_end_date","ae_median","wis","interval_coverage_95","n"
+"CNCovidHub-ensemble",2025-11-17,1.364,0.76560347826087,1,1
 "MUST-SEIRS",2025-11-17,0.75015757,0.68535000684,0,1
 "XMU_CTModelling-FNN",2025-11-17,1.46,0.76384347826087,1,1
 "XMU_CTModelling-GRU",2025-11-17,0.74,0.454060869565217,0,1

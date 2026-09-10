@@ -1,4 +1,5 @@
 "model_id","location","ae_median","wis","interval_coverage_95","n"
+"CNCovidHub-ensemble","CN",0.7285,0.52731652173913,0.375,15
 "XMU_CTModelling-FNN","CN",0.7525,0.551107608695652,0.375,15
 "XMU_CTModelling-GRU","CN",0.63125,0.441249456521739,0.625,15
 "XMU_CTModelling-LSTM","CN",0.8525,0.637299456521739,0.625,15

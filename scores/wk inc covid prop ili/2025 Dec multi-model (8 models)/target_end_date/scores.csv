@@ -1,4 +1,8 @@
 "model_id","target_end_date","ae_median","wis","interval_coverage_95","n"
+"CNCovidHub-ensemble",2025-12-01,0.386,0.210408695652174,1,1
+"CNCovidHub-ensemble",2025-12-08,0.208,0.158591304347826,1,2
+"CNCovidHub-ensemble",2025-12-15,0.148,0.0946886956521739,1,2
+"CNCovidHub-ensemble",2025-12-22,0.212,0.105233043478261,1,2
 "XMU_CTModelling-FNN",2025-12-01,0.35,0.19935652173913,1,1
 "XMU_CTModelling-FNN",2025-12-08,0.41,0.278060869565217,1,2
 "XMU_CTModelling-FNN",2025-12-15,0.08,0.088,1,2
