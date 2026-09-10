@@ -45,7 +45,8 @@ See the [Evaluation page](https://dailypartita.github.io/China-COVID-19-Forecast
 |------|----------|
 | CDC sentinel report | Weekly (typically Wednesday) |
 | Forecast submission deadline | Wednesday 23:59 Beijing time |
-| Dashboard data refresh | Thursday 17:33 UTC (automated, `regenerate=true`) |
+| Hub target-data sync | Friday / Sunday 02:00 UTC (Hub `sync-target-data.yaml`) |
+| Dashboard data refresh | Friday / Sunday 04:00 UTC (automated, `regenerate=true`; after Hub sync) |
 
 Target data from [China CDC sentinel surveillance](https://www.chinacdc.cn/jksj/jksj04_14275/). Extraction tool: [cn_cdc_crawl](https://github.com/dailypartita/cn_cdc_crawl).
 

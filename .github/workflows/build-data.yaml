@@ -1,7 +1,10 @@
 name: "Rebuild Data"
 on:
   schedule:
-    - cron: "33 17 * * 4" # every Thursday at 5:45PM UTC == 12:33PM EST
+    # Friday 04:00 UTC ≈ Friday 12:00 Asia/Shanghai — after Hub sync-target-data (Fri 02:00 UTC)
+    - cron: "0 4 * * 5"
+    # Sunday backup after Hub Sunday sync (Sun 02:00 UTC)
+    - cron: "0 4 * * 0"
   pull_request:
     branches: [main]
   push:
