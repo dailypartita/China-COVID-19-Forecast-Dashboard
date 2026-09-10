@@ -77,6 +77,7 @@
     "initial_as_of": "2026-08-31",
     "current_date": "2026-08-31",
     "models": [
+        "CNCovidHub-ensemble",
         "GZNL-NextWave",
         "MUST-SEIRS",
         "XMU_CTModelling-FNN",
@@ -86,6 +87,7 @@
         "XMU_CTModelling-XGBoost"
     ],
     "initial_checked_models": [
+        "CNCovidHub-ensemble",
         "GZNL-NextWave",
         "XMU_CTModelling-FNN",
         "XMU_CTModelling-LSTM",
@@ -101,6 +103,7 @@
         "XMU_CTModelling-XGBoost": "https://github.com/dailypartita/China-COVID-19-Forecast-Hub/blob/main/model-metadata/XMU_CTModelling-XGBoost.yaml",
         "GZNL-NextWave": "https://github.com/dailypartita/China-COVID-19-Forecast-Hub/blob/main/model-metadata/GZNL-NextWave.yaml",
         "MUST-SEIRS": "https://github.com/dailypartita/China-COVID-19-Forecast-Hub/blob/main/model-metadata/MUST-SEIRS.yaml",
+        "CNCovidHub-ensemble": "https://github.com/dailypartita/China-COVID-19-Forecast-Hub/blob/main/model-metadata/CNCovidHub-ensemble.yaml",
         "XMU_CTModelling-FNN": "https://github.com/dailypartita/China-COVID-19-Forecast-Hub/blob/main/model-metadata/XMU_CTModelling-FNN.yaml"
     },
     "disclaimer": "\u6b64dashboard\u5c55\u793a\u4e2d\u56fdCOVID-19\u9884\u6d4b\u7ed3\u679c\uff0c\u6570\u636e\u6765\u6e90\u4e8e\u4e2d\u56fd\u75be\u63a7\u4e2d\u5fc3\u6bcf\u5468\u6025\u6027\u547c\u5438\u9053\u4f20\u67d3\u75c5\u54e8\u70b9\u76d1\u6d4b\u3002",
