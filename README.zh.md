@@ -47,7 +47,8 @@
 |------|------|
 | CDC 哨点监测报告发布 | 每周（通常周三） |
 | 模型预测提交截止 | 每周三 23:59（北京时间） |
-| Dashboard 数据更新 | 每周四 17:33 UTC（自动，`regenerate=true`） |
+| Hub 目标数据同步 | 周五 / 周日 02:00 UTC（Hub `sync-target-data.yaml`） |
+| Dashboard 数据更新 | 周五 / 周日 04:00 UTC（自动，`regenerate=true`；在 Hub 同步之后） |
 
 监测数据来源于中国疾控中心[《全国急性呼吸道传染病哨点监测情况》](https://www.chinacdc.cn/jksj/jksj04_14275/)，结构化提取工具：[cn_cdc_crawl](https://github.com/dailypartita/cn_cdc_crawl)。
 
