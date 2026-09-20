@@ -3,8 +3,8 @@ on:
   schedule:
     # Friday 04:00 UTC ≈ Friday 12:00 Asia/Shanghai — after Hub sync-target-data (Fri 02:00 UTC)
     - cron: "0 4 * * 5"
-    # Sunday backup after Hub Sunday sync (Sun 02:00 UTC)
-    - cron: "0 4 * * 0"
+    # Sunday backup after Hub Sunday sync (Sun 06:00 UTC)
+    - cron: "0 8 * * 0"
   pull_request:
     branches: [main]
   push:
