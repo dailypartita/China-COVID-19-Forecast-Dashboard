@@ -1,10 +1,11 @@
 name: "Rebuild Data"
 on:
   schedule:
-    # Friday 04:00 UTC ≈ Friday 12:00 Asia/Shanghai — after Hub sync-target-data (Fri 02:00 UTC)
-    - cron: "0 4 * * 5"
-    # Sunday backup after Hub Sunday sync (Sun 06:00 UTC)
-    - cron: "0 8 * * 0"
+    # Friday 14:00 UTC ≈ Friday 22:00 Asia/Shanghai — well after Hub sync-target-data (Fri 08:00 UTC),
+    # accounting for common GitHub Actions schedule delays (up to ~6 h observed).
+    - cron: "0 14 * * 5"
+    # Sunday backup 14:00 UTC ≈ Sunday 22:00 Asia/Shanghai — after Hub Sunday sync (Sun 08:00 UTC)
+    - cron: "0 14 * * 0"
   pull_request:
     branches: [main]
   push:
