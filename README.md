@@ -1,6 +1,6 @@
 <div align="center">
 
-# China COVID-19 Forecast Hub Dashboard
+# China Infectious Disease Forecast Hub Dashboard
 
 **English** | [中文](README.zh.md)
 
@@ -8,9 +8,9 @@
 
 Interactive forecasting and evaluation platform built on the [Hubverse](https://hubverse.io/) framework. Displays and compares multi-model probabilistic forecasts of SARS-CoV-2 positivity rate among influenza-like illness (ILI) cases in China.
 
-**Live site:** [dailypartita.github.io/China-COVID-19-Forecast-Dashboard](https://dailypartita.github.io/China-COVID-19-Forecast-Dashboard/)
+**Live site:** [dailypartita.github.io/China-Infectious-Disease-Forecast-Dashboard](https://dailypartita.github.io/China-Infectious-Disease-Forecast-Dashboard/)
 
-**Data source:** [China-COVID-19-Forecast-Hub](https://github.com/dailypartita/China-COVID-19-Forecast-Hub)
+**Data source:** [China-Infectious-Disease-Forecast-Hub](https://github.com/dailypartita/China-Infectious-Disease-Forecast-Hub)
 
 ## Features
 
@@ -27,7 +27,7 @@ Interactive forecasting and evaluation platform built on the [Hubverse](https://
 
 ### Data Access
 
-Raw forecasts, target data, and Hub configuration are available via the [data page](https://dailypartita.github.io/China-COVID-19-Forecast-Dashboard/data.html) or the Forecast Hub repository.
+Raw forecasts, target data, and Hub configuration are available via the [data page](https://dailypartita.github.io/China-Infectious-Disease-Forecast-Dashboard/data.html) or the Forecast Hub repository.
 
 ## Active Models
 
@@ -37,7 +37,7 @@ Raw forecasts, target data, and Hub configuration are available via the [data pa
 | XMU_CTModelling | FNN, LSTM, XGBoost, GRU, TCN |
 | MUST | SEIRS |
 
-See the [Evaluation page](https://dailypartita.github.io/China-COVID-19-Forecast-Dashboard/eval.html) for latest rankings.
+See the [Evaluation page](https://dailypartita.github.io/China-Infectious-Disease-Forecast-Dashboard/eval.html) for latest rankings.
 
 ## Data Updates
 
@@ -76,7 +76,7 @@ Target data from [China CDC sentinel surveillance](https://www.chinacdc.cn/jksj/
 
 ### Submit forecasts
 
-1. Register model metadata in the [Forecast Hub](https://github.com/dailypartita/China-COVID-19-Forecast-Hub)
+1. Register model metadata in the [Forecast Hub](https://github.com/dailypartita/China-Infectious-Disease-Forecast-Hub)
 2. Submit 23-quantile probabilistic forecasts (CSV) in Hubverse format
 3. Complete weekly submissions by Wednesday 23:59 Beijing time
 
@@ -88,8 +88,8 @@ Target data from [China CDC sentinel surveillance](https://www.chinacdc.cn/jksj/
 
 ## Links
 
-- [Forecast Hub](https://github.com/dailypartita/China-COVID-19-Forecast-Hub)
-- [Dashboard Issues](https://github.com/dailypartita/China-COVID-19-Forecast-Dashboard/issues)
+- [Forecast Hub](https://github.com/dailypartita/China-Infectious-Disease-Forecast-Hub)
+- [Dashboard Issues](https://github.com/dailypartita/China-Infectious-Disease-Forecast-Dashboard/issues)
 - [Hubverse docs](https://docs.hubverse.io/)
 
 ## License

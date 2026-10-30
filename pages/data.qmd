@@ -6,7 +6,7 @@ title: "Data Access"
 
 <!-- This hub does not use cloud storage, so data is accessed directly from GitHub -->
 
-All model-output, target, and configuration files for this hub are hosted on GitHub. You can access the data directly from the repository at [dailypartita/China-COVID-19-Forecast-Hub](https://github.com/dailypartita/China-COVID-19-Forecast-Hub).
+All model-output, target, and configuration files for this hub are hosted on GitHub. You can access the data directly from the repository at [dailypartita/China-Infectious-Disease-Forecast-Hub](https://github.com/dailypartita/China-Infectious-Disease-Forecast-Hub).
 
 GitHub serves as the primary interface for operating the hub and collecting forecasts from modelers. You can access hub data by cloning the repository or downloading files directly from GitHub.
 
@@ -29,8 +29,8 @@ The sections below provide examples for accessing hub data depending on your goa
 To get a complete local copy of all hub data:
 
 ```sh
-git clone https://github.com/dailypartita/China-COVID-19-Forecast-Hub.git
-cd China-COVID-19-Forecast-Hub
+git clone https://github.com/dailypartita/China-Infectious-Disease-Forecast-Hub.git
+cd China-Infectious-Disease-Forecast-Hub
 ```
 
 This gives you access to:
@@ -42,7 +42,7 @@ This gives you access to:
 ### Repository Structure
 
 ```
-China-COVID-19-Forecast-Hub/
+China-Infectious-Disease-Forecast-Hub/
 ├── model-output/          # Model forecasts by team
 │   ├── GZNL-test_001/
 │   ├── GZNL-test_002/
@@ -64,19 +64,19 @@ You can directly download individual files using GitHub's raw file URLs:
 ```r
 # R example: Load target data
 library(readr)
-target_data <- read_csv("https://raw.githubusercontent.com/dailypartita/China-COVID-19-Forecast-Hub/main/target-data/time-series.csv")
+target_data <- read_csv("https://raw.githubusercontent.com/dailypartita/China-Infectious-Disease-Forecast-Hub/main/target-data/time-series.csv")
 
 # Load a specific model's forecast
-model_data <- read_csv("https://raw.githubusercontent.com/dailypartita/China-COVID-19-Forecast-Hub/main/model-output/GZNL-test_001/2025-08-28-GZNL-test_001.csv")
+model_data <- read_csv("https://raw.githubusercontent.com/dailypartita/China-Infectious-Disease-Forecast-Hub/main/model-output/GZNL-test_001/2025-08-28-GZNL-test_001.csv")
 ```
 
 ```python
 # Python example: Load target data
 import pandas as pd
-target_data = pd.read_csv("https://raw.githubusercontent.com/dailypartita/China-COVID-19-Forecast-Hub/main/target-data/time-series.csv")
+target_data = pd.read_csv("https://raw.githubusercontent.com/dailypartita/China-Infectious-Disease-Forecast-Hub/main/target-data/time-series.csv")
 
 # Load a specific model's forecast  
-model_data = pd.read_csv("https://raw.githubusercontent.com/dailypartita/China-COVID-19-Forecast-Hub/main/model-output/GZNL-test_001/2025-08-28-GZNL-test_001.csv")
+model_data = pd.read_csv("https://raw.githubusercontent.com/dailypartita/China-Infectious-Disease-Forecast-Hub/main/model-output/GZNL-test_001/2025-08-28-GZNL-test_001.csv")
 ```
 
 ## GitHub API
@@ -91,7 +91,7 @@ library(httr)
 library(jsonlite)
 
 # List all model teams
-response <- GET("https://api.github.com/repos/dailypartita/China-COVID-19-Forecast-Hub/contents/model-output")
+response <- GET("https://api.github.com/repos/dailypartita/China-Infectious-Disease-Forecast-Hub/contents/model-output")
 teams <- fromJSON(content(response, "text"))$name
 print(teams)
 ```
@@ -101,7 +101,7 @@ print(teams)
 import requests
 
 # List all model teams
-response = requests.get("https://api.github.com/repos/dailypartita/China-COVID-19-Forecast-Hub/contents/model-output")
+response = requests.get("https://api.github.com/repos/dailypartita/China-Infectious-Disease-Forecast-Hub/contents/model-output")
 teams = [item['name'] for item in response.json()]
 print(teams)
 ```
@@ -115,7 +115,7 @@ DATE="2025-08-28"
 mkdir -p model-outputs-${DATE}
 
 for team in GZNL-test_001 GZNL-test_002 GZNL-test_003 GZNL-test_004; do
-    wget "https://raw.githubusercontent.com/dailypartita/China-COVID-19-Forecast-Hub/main/model-output/${team}/${DATE}-${team}.csv" \
+    wget "https://raw.githubusercontent.com/dailypartita/China-Infectious-Disease-Forecast-Hub/main/model-output/${team}/${DATE}-${team}.csv" \
          -O "model-outputs-${DATE}/${team}.csv"
 done
 ```
@@ -141,4 +141,4 @@ Each model output file contains quantile forecasts with the following columns:
 - `output_type_id`: Quantile level (0.01, 0.025, 0.05, ..., 0.975, 0.99)
 - `value`: The predicted value
 
-For more details on the data format and hub structure, see the [repository README](https://github.com/dailypartita/China-COVID-19-Forecast-Hub/blob/main/README.md).
+For more details on the data format and hub structure, see the [repository README](https://github.com/dailypartita/China-Infectious-Disease-Forecast-Hub/blob/main/README.md).

@@ -1,6 +1,6 @@
 <div align="center">
 
-# 中国 COVID-19 预测中心 Dashboard
+# 中国传染病预测中心 Dashboard
 
 [English](README.md) | **中文**
 
@@ -8,9 +8,9 @@
 
 基于 [Hubverse](https://hubverse.io/) 框架构建的交互式预测与评估平台，用于展示和比较中国门急诊 ILI 病例中 SARS-CoV-2 阳性率的多模型概率预测结果。
 
-**在线访问：** [dailypartita.github.io/China-COVID-19-Forecast-Dashboard](https://dailypartita.github.io/China-COVID-19-Forecast-Dashboard/)
+**在线访问：** [dailypartita.github.io/China-Infectious-Disease-Forecast-Dashboard](https://dailypartita.github.io/China-Infectious-Disease-Forecast-Dashboard/)
 
-**数据来源：** [China-COVID-19-Forecast-Hub](https://github.com/dailypartita/China-COVID-19-Forecast-Hub)
+**数据来源：** [China-Infectious-Disease-Forecast-Hub](https://github.com/dailypartita/China-Infectious-Disease-Forecast-Hub)
 
 ## 平台功能
 
@@ -27,7 +27,7 @@
 
 ### 数据获取
 
-原始预测数据、目标数据及 Hub 配置可通过 [数据获取页面](https://dailypartita.github.io/China-COVID-19-Forecast-Dashboard/data.html) 或 Forecast Hub 仓库直接访问。
+原始预测数据、目标数据及 Hub 配置可通过 [数据获取页面](https://dailypartita.github.io/China-Infectious-Disease-Forecast-Dashboard/data.html) 或 Forecast Hub 仓库直接访问。
 
 ## 参与模型
 
@@ -39,7 +39,7 @@
 | XMU_CTModelling | FNN, LSTM, XGBoost, GRU, TCN |
 | MUST | SEIRS |
 
-最新排名与详细指标请查看 Dashboard [Evaluation 页面](https://dailypartita.github.io/China-COVID-19-Forecast-Dashboard/eval.html)。
+最新排名与详细指标请查看 Dashboard [Evaluation 页面](https://dailypartita.github.io/China-Infectious-Disease-Forecast-Dashboard/eval.html)。
 
 ## 数据更新
 
@@ -78,7 +78,7 @@
 
 ### 提交预测模型
 
-1. 在 [Forecast Hub](https://github.com/dailypartita/China-COVID-19-Forecast-Hub) 注册模型元数据
+1. 在 [Forecast Hub](https://github.com/dailypartita/China-Infectious-Disease-Forecast-Hub) 注册模型元数据
 2. 按 Hubverse 标准格式提交 23 分位数概率预测（CSV）
 3. 每周三 23:59 前完成当周预测提交
 
@@ -90,8 +90,8 @@
 
 ## 相关链接
 
-- [Forecast Hub 仓库](https://github.com/dailypartita/China-COVID-19-Forecast-Hub)
-- [Dashboard Issues](https://github.com/dailypartita/China-COVID-19-Forecast-Dashboard/issues)
+- [Forecast Hub 仓库](https://github.com/dailypartita/China-Infectious-Disease-Forecast-Hub)
+- [Dashboard Issues](https://github.com/dailypartita/China-Infectious-Disease-Forecast-Dashboard/issues)
 - [Hubverse 文档](https://docs.hubverse.io/)
 
 ## 许可证
