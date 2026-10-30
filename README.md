@@ -6,7 +6,7 @@
 
 </div>
 
-Interactive forecasting and evaluation platform built on the [Hubverse](https://hubverse.io/) framework. Displays and compares multi-model probabilistic forecasts of SARS-CoV-2 positivity rate among influenza-like illness (ILI) cases in China.
+Interactive forecasting and evaluation platform built on the [Hubverse](https://hubverse.io/) framework. Displays and compares multi-model probabilistic forecasts of three infectious-disease targets in China: weekly SARS-CoV-2 and influenza positivity rates among influenza-like illness (ILI) cases, and monthly reported dengue cases.
 
 **Live site:** [dailypartita.github.io/China-Infectious-Disease-Forecast-Dashboard](https://dailypartita.github.io/China-Infectious-Disease-Forecast-Dashboard/)
 
@@ -16,13 +16,13 @@ Interactive forecasting and evaluation platform built on the [Hubverse](https://
 
 ### Forecasts
 
-- **Target:** SARS-CoV-2 positivity rate among ILI cases from national sentinel surveillance
+- **Targets:** Weekly SARS-CoV-2 and influenza positivity rates among ILI cases from national sentinel surveillance (switchable on the forecast page); monthly reported dengue cases (chart support planned)
 - **Probabilistic output:** 23-quantile distributions with 95% prediction intervals
 - **Interactivity:** Reference date selection, model toggles, interval levels, keyboard navigation
 
 ### Evaluation
 
-- **Metrics:** WIS, AE median, 95% interval coverage (absolute scores)
+- **Metrics:** WIS, AE median, 95% interval coverage (absolute scores) for both weekly ILI positivity targets
 - **Views:** Table rankings and Plot heatmaps
 
 ### Data Access

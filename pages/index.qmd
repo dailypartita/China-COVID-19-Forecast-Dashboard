@@ -20,7 +20,7 @@ format:
 
 ::: {.lang-body .lang-en}
 ```{=html}
-<p class="hero-subtitle">SARS-CoV-2 positivity rate among ILI cases · multi-model forecasting &amp; evaluation</p>
+<p class="hero-subtitle">Respiratory pathogen positivity &amp; dengue · multi-model forecasting &amp; evaluation</p>
 <div class="hero-actions">
   <a href="forecast.html" class="btn btn-primary btn-lg" role="button">View Forecasts</a>
   <a href="eval.html" class="btn btn-outline-primary btn-lg" role="button">Model Evaluation</a>
@@ -31,7 +31,7 @@ format:
 
 ::: {.lang-body .lang-zh .hidden}
 ```{=html}
-<p class="hero-subtitle">门急诊 ILI 病例 SARS-CoV-2 阳性率 · 多模型预测与评估</p>
+<p class="hero-subtitle">呼吸道病原体阳性率与登革热 · 多模型预测与评估</p>
 <div class="hero-actions">
   <a href="forecast.html" class="btn btn-primary btn-lg" role="button">查看预测</a>
   <a href="eval.html" class="btn btn-outline-primary btn-lg" role="button">模型评估</a>

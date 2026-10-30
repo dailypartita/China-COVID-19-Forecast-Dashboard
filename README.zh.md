@@ -6,7 +6,7 @@
 
 </div>
 
-基于 [Hubverse](https://hubverse.io/) 框架构建的交互式预测与评估平台，用于展示和比较中国门急诊 ILI 病例中 SARS-CoV-2 阳性率的多模型概率预测结果。
+基于 [Hubverse](https://hubverse.io/) 框架构建的交互式预测与评估平台，用于展示和比较中国三个传染病预测目标的多模型概率预测结果：门急诊 ILI 病例中 SARS-CoV-2 与流感病毒的周度阳性率，以及月度登革热报告病例数。
 
 **在线访问：** [dailypartita.github.io/China-Infectious-Disease-Forecast-Dashboard](https://dailypartita.github.io/China-Infectious-Disease-Forecast-Dashboard/)
 
@@ -16,13 +16,13 @@
 
 ### 预测可视化（Forecasts）
 
-- **监测指标：** 全国急性呼吸道传染病哨点监测中，门急诊流感样病例（ILI）的 SARS-CoV-2 阳性率
+- **监测指标：** 全国急性呼吸道传染病哨点监测中，门急诊流感样病例（ILI）的 SARS-CoV-2 与流感病毒周度阳性率（预测页可切换）；月度登革热报告病例数（图表展示后续支持）
 - **概率预测：** 23 分位数完整预测分布，支持 95% 置信区间展示
 - **交互能力：** 参考日期切换、模型显隐、置信区间调整、键盘导航
 
 ### 模型评估（Evaluation）
 
-- **评估指标：** WIS、AE median、95% 区间覆盖率（绝对分数）
+- **评估指标：** WIS、AE median、95% 区间覆盖率（绝对分数），覆盖两个周频 ILI 阳性率 target
 - **对比方式：** Table 综合排名与 Plot 热力图双视图
 
 ### 数据获取

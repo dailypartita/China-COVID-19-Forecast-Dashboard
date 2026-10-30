@@ -128,13 +128,19 @@ All model output files in this hub are stored in CSV format and follow the [Hubv
 
 ### Target Data
 
-The target data (`target-data/time-series.csv`) contains observed SARS-CoV-2 positivity rates among department influenza-like illness (ILI) cases, as reported in China CDC's weekly National Sentinel Surveillance of Acute Respiratory Infectious Diseases.
+The target data (`target-data/time-series.csv`) is a long table with a `target` column mixing three targets:
+
+- `wk inc covid prop ili` — weekly SARS-CoV-2 positivity rate among department influenza-like illness (ILI) cases
+- `wk inc flu prop ili` — weekly influenza virus positivity rate among ILI cases
+- `mo inc dengue cases` — monthly reported dengue cases (monthly frequency; `date` is the first day of each month)
+
+The two ILI positivity targets come from China CDC's weekly National Sentinel Surveillance of Acute Respiratory Infectious Diseases; dengue cases come from China CDC's monthly notifiable infectious disease surveillance report.
 
 ### Model Output Data
 
 Each model output file contains quantile forecasts with the following columns:
 - `reference_date`: The date the forecast was made
-- `target`: The forecasting target (`wk inc covid prop ili`)
+- `target`: The forecasting target (`wk inc covid prop ili`, `wk inc flu prop ili`, or `mo inc dengue cases`)
 - `target_end_date`: The date for which the prediction is made
 - `location`: Geographic location code (`CN` for China)
 - `output_type`: Type of prediction (`quantile`)
