@@ -1,4 +1,7 @@
-# Updated: 2026-10-30 — enable relative metrics (baseline MUST-SEIRS); add rolling "Full season" / "Last 4 weeks" eval sets; quote all dates (schema requires strings)
+# Updated: 2026-10-30 — add rolling "Full season" / "Last 4 weeks" eval sets; quote all dates (schema requires strings).
+# NOTE: relative_metrics/baseline intentionally disabled — MUST-SEIRS only submitted 2 rounds
+# (2025-11-17, 2026-01-19) and hubEvals hard-fails when the baseline is absent from an eval set.
+# Revisit once a model with full-season coverage is designated as baseline.
 schema_version: https://raw.githubusercontent.com/hubverse-org/hubPredEvalsData/main/inst/schema/v1.0.1/config_schema.json
 rounds_idx: 0
 targets:
@@ -7,10 +10,6 @@ targets:
   - ae_median
   - wis
   - interval_coverage_95
-  relative_metrics:
-  - ae_median
-  - wis
-  baseline: MUST-SEIRS
   disaggregate_by:
   - target_end_date
   - location
