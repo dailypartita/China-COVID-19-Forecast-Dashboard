@@ -1,5 +1,7 @@
 ---
-# Updated: 2026-09-10 — add CNCovidHub-ensemble (hub-generated weighted quantile mean)
+# Updated: 2026-10-30 — multi-disease: add target switcher (covid/flu) via task_id_text.
+# NOTE: "mo inc dengue cases" (rounds_idx 1, monthly) is intentionally not shown here —
+# predtimechart assumes evenly-spaced weekly target_end_date and this config is rounds_idx 0.
 rounds_idx: 0
 reference_date_col_name: reference_date
 target_date_col_name: target_end_date
@@ -14,8 +16,11 @@ initial_checked_models:
   - XMU_CTModelling-TCN
   - MUST-SEIRS
 
-disclaimer: 此dashboard展示中国COVID-19预测结果，数据来源于中国疾控中心每周急性呼吸道传染病哨点监测。
+disclaimer: 此dashboard展示中国新冠与流感阳性率的多模型预测结果，数据来源于中国疾控中心每周急性呼吸道传染病哨点监测；登革热月频预测的图表展示将于后续支持。
 target_data_file_name: time-series.csv
 task_id_text:
   location:
     CN: China
+  target:
+    wk inc covid prop ili: SARS-CoV-2 ILI positivity
+    wk inc flu prop ili: Influenza ILI positivity
