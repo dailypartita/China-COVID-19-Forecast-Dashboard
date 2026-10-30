@@ -19,7 +19,7 @@ eval_sets:
 # Rolling window: covers all rounds since season start, auto-extends weekly
 - eval_set_name: Full season
   round_filters:
-    min: '2025-10-01'
+    min: '2025-10-06'
   task_filters:
     location:
     - CN
@@ -32,7 +32,7 @@ eval_sets:
 # the latest round usually has no truth data yet at scoring time)
 - eval_set_name: Last 4 weeks
   round_filters:
-    min: '2025-10-01'
+    min: '2025-10-06'
     n_last: 5
   task_filters:
     location:
